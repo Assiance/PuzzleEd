@@ -11,7 +11,7 @@ namespace Assets.PuzzleEd.Scripts.Regular.Scene
         {
             Invoke("LoadMainMenu", 2f);
         }
-
+         
         private void LoadMainMenu()
         {
             GameController.Instance.StartGame();
