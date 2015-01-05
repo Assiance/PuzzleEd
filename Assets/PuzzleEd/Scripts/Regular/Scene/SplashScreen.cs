@@ -14,8 +14,7 @@ namespace Assets.PuzzleEd.Scripts.Regular.Scene
          
         private void LoadMainMenu()
         {
-            GameController.Instance.StartGame();
-            Debug.Log("Start Game");
+            Application.LoadLevel("MainMenuScene");
         }
     }
 }
