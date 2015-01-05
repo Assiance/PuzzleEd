@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Assets.Telekinesis.Scripts.Regular.Framework
+namespace Assets.PuzzleEd.Scripts.Regular.General
 {
     public abstract class ESMonoBehaviour : MonoBehaviour
     {
