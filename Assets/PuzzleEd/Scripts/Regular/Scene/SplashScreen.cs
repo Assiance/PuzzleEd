@@ -9,12 +9,14 @@ namespace Assets.PuzzleEd.Scripts.Regular.Scene
     {
         private void Start()
         {
-            Invoke("LoadMainMenu", 2f);
+            StartCoroutine(LoadMainMenu());
         }
          
-        private void LoadMainMenu()
+        private IEnumerator LoadMainMenu()
         {
+            yield return new WaitForSeconds(2f);
             Application.LoadLevel("MainMenuScene");
+            StopCoroutine(LoadMainMenu());
         }
     }
 }
