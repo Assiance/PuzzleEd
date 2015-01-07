@@ -37,7 +37,6 @@ namespace Assets.PuzzleEd.Scripts.Regular.Managers
             }
 
             Debug.Log("All Puzzle Pieces In Position");
-            StopCoroutine(CheckIfPuzzlePiecesFinished());
             GameController.Instance.PuzzleFinished();
             StartCoroutine(CheckIfLetterPiecesFinished());
         }
@@ -51,7 +50,6 @@ namespace Assets.PuzzleEd.Scripts.Regular.Managers
             }
 
             Debug.Log("All Letter Pieces in Position");
-            StopCoroutine(CheckIfLetterPiecesFinished());
             GameController.Instance.LettersFinished();
             GameController.Instance.LevelFinished();
         }

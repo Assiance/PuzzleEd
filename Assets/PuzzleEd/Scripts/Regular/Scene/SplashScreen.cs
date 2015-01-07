@@ -16,7 +16,6 @@ namespace Assets.PuzzleEd.Scripts.Regular.Scene
         {
             yield return new WaitForSeconds(2f);
             Application.LoadLevel("MainMenuScene");
-            StopCoroutine(LoadMainMenu());
         }
     }
 }
