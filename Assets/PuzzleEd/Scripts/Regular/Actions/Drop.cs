@@ -16,20 +16,15 @@ namespace Assets.PuzzleEd.Scripts.Regular.Actions
         public Action OnOver { get; private set; }
         public Action OnOut { get; private set; }
 
-        void OnCollisionEnter2D(Collision2D coll)
+        void OnTriggerEnter2D(Collider2D coll)
         {
             //get the game object we collided with class Drag and all is properties 
-            Drag collidedDragObj=coll.gameObject.GetComponent<Drag>();
-            if(dropid==collidedDragObj.id)
+            Drag puzzlePiece=coll.gameObject.GetComponent<Drag>();
+            if(dropid==puzzlePiece.id)
             {
-                //
-                Transform puzzlepiece = coll.gameObject.transform;
-                Vector2 puzzlepiecePosition = puzzlepiece.position;
-                coll.gameObject.rigidbody2D.isKinematic = false;
-                //GameObject.Destroy(gameObject);
-                gameObject.transform.position = puzzlepiecePosition;
-
-
+                //object match so we will remove the drag from object
+                puzzlePiece.Draggable = false;
+                coll.gameObject.transform.position = gameObject.transform.position;
             }
             Debug.Log("collide");
         }
