@@ -209,8 +209,8 @@ GameObject:
   - 114: {fileID: 467976000}
   - 114: {fileID: 467975999}
   - 212: {fileID: 467975998}
-  - 61: {fileID: 467975997}
   - 50: {fileID: 467976001}
+  - 58: {fileID: 467975997}
   m_Layer: 0
   m_Name: Puzzle Piece
   m_TagString: Untagged
@@ -230,16 +230,16 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1483123561}
   m_RootOrder: 1
---- !u!61 &467975997
-BoxCollider2D:
+--- !u!58 &467975997
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 467975995}
   m_Enabled: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Size: {x: .200000003, y: .200000003}
+  m_IsTrigger: 1
+  m_Radius: .0799999982
   m_Center: {x: 0, y: 0}
 --- !u!212 &467975998
 SpriteRenderer:
@@ -585,11 +585,10 @@ GameObject:
   - 4: {fileID: 1911467954}
   - 114: {fileID: 1911467953}
   - 212: {fileID: 1911467955}
-  - 61: {fileID: 1911467957}
   - 114: {fileID: 1911467958}
-  - 50: {fileID: 1911467956}
+  - 58: {fileID: 1911467956}
   m_Layer: 0
-  m_Name: Puzzle Piece
+  m_Name: basepiece
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -641,23 +640,8 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
   m_Color: {r: .904411793, g: .0665008798, b: .0665008798, a: 1}
---- !u!50 &1911467956
-Rigidbody2D:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1911467952}
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: .0500000007
-  m_GravityScale: 0
-  m_FixedAngle: 1
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
---- !u!61 &1911467957
-BoxCollider2D:
+--- !u!58 &1911467956
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
@@ -665,7 +649,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Size: {x: .200000003, y: .200000003}
+  m_Radius: .0799999982
   m_Center: {x: 0, y: 0}
 --- !u!114 &1911467958
 MonoBehaviour:
