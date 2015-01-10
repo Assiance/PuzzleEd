@@ -11,6 +11,7 @@ namespace Assets.PuzzleEd.Scripts.Regular.Inputs
         private IDraggable _draggableObject;
         private Vector3 _newPosition;
         private GameObject _gameObject;
+        
 
         void Update()
         {
@@ -48,12 +49,14 @@ namespace Assets.PuzzleEd.Scripts.Regular.Inputs
             if (_hit != null && _hit.collider != null)
             {
                 Debug.Log("I'm hitting " + _hit.collider.name);
-                _gameObject = _hit.transform.gameObject;
-                _draggableObject = _gameObject.GetComponent(typeof (IDraggable)) as IDraggable;
+
+                _draggableObject = _hit.transform.gameObject.GetComponent(typeof(IDraggable)) as IDraggable;
 
                 if (_draggableObject != null)
                 {
+                    _gameObject = _hit.transform.gameObject;
                     _draggableObject.StartingPosition = _hit.transform.position;
+                 
                     _draggableObject.OnStart();
                 }
             }
@@ -61,7 +64,8 @@ namespace Assets.PuzzleEd.Scripts.Regular.Inputs
 
         void DragPuzzlePiece(Vector2 changePosition)
         {
-            if (_gameObject != null)
+
+            if (_gameObject != null && _draggableObject.Draggable)
                 _gameObject.transform.position = new Vector2(_newPosition.x, _newPosition.y);
 
             if (_draggableObject != null)

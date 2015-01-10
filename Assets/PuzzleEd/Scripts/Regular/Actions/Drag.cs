@@ -8,13 +8,19 @@ namespace Assets.PuzzleEd.Scripts.Regular.Actions
     public class Drag : ESMonoBehaviour, IDraggable
     {
         public string DragId { get; set; }
+        public string id = "";
         public bool RevertPosition { get; set; }
         public Vector3 StartingPosition { get; set; }
-
+        public bool Draggable { get; set; } 
         public Action OnStart{ get { return Start; } }
 
+        public Drag()
+        {
+            Draggable = true;
+        }
         private void Start()
         {
+           
             Debug.Log("Start");
         }
 
@@ -31,5 +37,7 @@ namespace Assets.PuzzleEd.Scripts.Regular.Actions
         {
             Debug.Log("Dragging");
         }
+
+   
     }
 }

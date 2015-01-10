@@ -210,6 +210,7 @@ GameObject:
   - 114: {fileID: 467975999}
   - 212: {fileID: 467975998}
   - 61: {fileID: 467975997}
+  - 50: {fileID: 467976001}
   m_Layer: 0
   m_Name: Puzzle Piece
   m_TagString: Untagged
@@ -268,11 +269,12 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 467975995}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 39f78c1723f49514b99ec596a4a3cb42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  id: 23
 --- !u!114 &467976000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -285,6 +287,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsPlaced: 0
+--- !u!50 &467976001
+Rigidbody2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 467975995}
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: .0500000007
+  m_GravityScale: 0
+  m_FixedAngle: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
 --- !u!1 &728050639
 GameObject:
   m_ObjectHideFlags: 0
@@ -360,6 +377,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39f78c1723f49514b99ec596a4a3cb42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  id: 
 --- !u!4 &728050644
 Transform:
   m_ObjectHideFlags: 0
@@ -488,6 +506,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39f78c1723f49514b99ec596a4a3cb42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  id: 
 --- !u!1 &1483123560
 GameObject:
   m_ObjectHideFlags: 0
@@ -565,9 +584,10 @@ GameObject:
   m_Component:
   - 4: {fileID: 1911467954}
   - 114: {fileID: 1911467953}
-  - 114: {fileID: 1911467956}
   - 212: {fileID: 1911467955}
   - 61: {fileID: 1911467957}
+  - 114: {fileID: 1911467958}
+  - 50: {fileID: 1911467956}
   m_Layer: 0
   m_Name: Puzzle Piece
   m_TagString: Untagged
@@ -620,18 +640,22 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
---- !u!114 &1911467956
-MonoBehaviour:
+  m_Color: {r: .904411793, g: .0665008798, b: .0665008798, a: 1}
+--- !u!50 &1911467956
+Rigidbody2D:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1911467952}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 39f78c1723f49514b99ec596a4a3cb42, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: .0500000007
+  m_GravityScale: 0
+  m_FixedAngle: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
 --- !u!61 &1911467957
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -643,6 +667,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_Size: {x: .200000003, y: .200000003}
   m_Center: {x: 0, y: 0}
+--- !u!114 &1911467958
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1911467952}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa17e2b9fd30875478a2215f4832c773, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dropid: 23
 --- !u!1 &2056564337
 GameObject:
   m_ObjectHideFlags: 0

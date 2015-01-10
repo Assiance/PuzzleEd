@@ -20,6 +20,12 @@ namespace Assets.PuzzleEd.Scripts.Regular.Actions.Interfaces
         /// </summary>
         Vector3 StartingPosition { get; set; }
 
+
+        /// <summary>
+        ///     Check if object is allowe to move.
+        /// </summary>
+        bool Draggable { get; set; }
+
         /// <summary>
         ///     Callback called when starting the drag
         /// </summary>
