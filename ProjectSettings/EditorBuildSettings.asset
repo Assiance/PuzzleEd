@@ -7,9 +7,9 @@ EditorBuildSettings:
   m_Scenes:
   - enabled: 0
     path: Assets/UnityRemote/Remote.unity
-  - enabled: 1
+  - enabled: 0
     path: Assets/PuzzleEd/Scenes/SplashScene.unity
-  - enabled: 1
+  - enabled: 0
     path: Assets/PuzzleEd/Scenes/MainMenuScene.unity
   - enabled: 1
     path: Assets/PuzzleEd/Scenes/Level1.unity
