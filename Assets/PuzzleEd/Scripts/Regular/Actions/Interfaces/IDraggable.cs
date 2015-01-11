@@ -20,6 +20,10 @@ namespace Assets.PuzzleEd.Scripts.Regular.Actions.Interfaces
         /// </summary>
         Vector3 StartingPosition { get; set; }
 
+        /// <summary>
+        ///     Hold last object it collided with
+        /// </summary>
+        GameObject LastObjectCollided { get; set; }
 
         /// <summary>
         ///     Check if object is allowe to move.
