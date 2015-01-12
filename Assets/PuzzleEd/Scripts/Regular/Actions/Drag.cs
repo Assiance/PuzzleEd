@@ -35,10 +35,8 @@ namespace Assets.PuzzleEd.Scripts.Regular.Actions
                 Drop puzzlePieceBase = LastObjectCollided.gameObject.GetComponent<Drop>();
                 if (this.id == puzzlePieceBase.dropid&& !AlreadyPosition)
                 {
-                    //object match so we will remove the drag from object
                     Draggable = false;
                     AlreadyPosition = true;
-                    //coll.gameObject.transform.position = gameObject.transform.position;
                     iTween.MoveTo(gameObject, iTween.Hash("x", LastObjectCollided.gameObject.transform.position.x, "Y", LastObjectCollided.gameObject.transform.position.y, "time", 4));
                 }
                 else

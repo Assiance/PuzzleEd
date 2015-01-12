@@ -55,8 +55,6 @@ namespace Assets.PuzzleEd.Scripts.Regular.Inputs
                 if (_draggableObject != null)
                 {
                     _gameObject = _hit.transform.gameObject;
-                    //_draggableObject.StartingPosition = _hit.transform.position;
-                 
                     _draggableObject.OnStart();
                 }
             }

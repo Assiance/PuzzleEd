@@ -18,21 +18,8 @@ namespace Assets.PuzzleEd.Scripts.Regular.Actions
 
         void OnTriggerEnter2D(Collider2D coll)
         {
-
             Drag puzzlePiece=coll.gameObject.GetComponent<Drag>();
             puzzlePiece.LastObjectCollided = gameObject;
-            ////get the game object we collided with class Drag and all is properties 
-            //Drag puzzlePiece=coll.gameObject.GetComponent<Drag>();
-            //if(dropid==puzzlePiece.id)
-            //{
-            //    //object match so we will remove the drag from object
-            //    puzzlePiece.Draggable = false;
-            //    //coll.gameObject.transform.position = gameObject.transform.position;
-            //    iTween.MoveTo(coll.gameObject, iTween.Hash("x", gameObject.transform.position.x, "Y", gameObject.transform.position.y, "time",4));
-            //}
-
-       
-            
             Debug.Log("collide");
         }
     }
