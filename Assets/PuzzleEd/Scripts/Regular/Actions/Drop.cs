@@ -7,9 +7,27 @@ namespace Assets.PuzzleEd.Scripts.Regular.Actions
     public class Drop : ESMonoBehaviour
     {
         public string DropId;
+
         public Action OnDrop { get; private set; }
-        public Action OnOver { get; private set; }
+
+        protected virtual void Dropping()
+        {
+            Debug.Log("Dropping");
+        }
+
+        public Action OnHover { get; private set; }
+
+        protected virtual void DropHover()
+        {
+            Debug.Log("Hover");
+        }
+
         public Action OnOut { get; private set; }
+
+        protected virtual void DropOut()
+        {
+            Debug.Log("Out");
+        }
 
         void OnTriggerEnter2D(Collider2D coll)
         {
