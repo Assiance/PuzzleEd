@@ -1,66 +1,81 @@
 ﻿using System;
-using Assets.PuzzleEd.Scripts.Regular.Actions.Interfaces;
 using Assets.PuzzleEd.Scripts.Regular.General;
 using UnityEngine;
 
 namespace Assets.PuzzleEd.Scripts.Regular.Actions
 {
-    public class Drag : ESMonoBehaviour, IDraggable
+    public class Drag : ESMonoBehaviour
     {
-        public string DragId { get; set; }
-        public string id = "";
-        public bool RevertPosition { get; set; }
-        public Vector3 StartingPosition { get; set; }
-        public bool Draggable { get; set; } 
-        public Action OnStart{ get { return Start; } }
-        private bool AlreadyPosition { get; set; }
-        public Drag()
+        public string DragId;
+        public bool RestorePositionOnMissDrop;
+        public float RestoreSpeed = 1.3f;
+        public Vector3 RestorePosition { get; set; }
+
+        public GameObject CollidingDropArea { get; set; }
+        private Vector2 _tempPosition;
+
+        public void Start()
         {
-            Draggable = true;
-            AlreadyPosition = false;
-           
+            RestorePosition = gameObject.transform.position;   
         }
-        private void Start()
+
+        #region Start Drag
+        /// <summary>
+        ///     Callback called when starting the drag
+        /// </summary>
+
+        public Action OnStart { get { return DragStart; } }
+
+        protected virtual void DragStart()
         {
-            StartingPosition = gameObject.transform.position;
             Debug.Log("Start");
         }
+        #endregion
 
-        public Action OnStop { get { return Stop; } }
+        #region Dragging
+        /// <summary>
+        ///     Callback called when dragging
+        /// </summary>
 
-        private void Stop()
+        public Action<Vector2> OnDrag { get { return Dragging; } }
+
+        protected virtual void Dragging(Vector2 newPosition)
         {
-            if (LastObjectCollided != null)
+            Debug.Log("Dragging");
+            _tempPosition.x = newPosition.x;
+            _tempPosition.y = newPosition.y;
+
+            CachedTransform.position = _tempPosition;
+        }
+        #endregion
+
+        #region Stop Drag
+        /// <summary>
+        ///     Callback called when stopping the drag
+        /// </summary>
+      
+        public Action OnStop { get { return DragStop; } }
+
+        protected virtual void DragStop()
+        {
+            if (CollidingDropArea != null)
             {
-                Drop puzzlePieceBase = LastObjectCollided.gameObject.GetComponent<Drop>();
-                if (this.id == puzzlePieceBase.dropid&& !AlreadyPosition)
+                Drop dropComponent = CollidingDropArea.gameObject.GetComponent<Drop>();
+                if (this.DragId == dropComponent.DropId)
                 {
-                    Draggable = false;
-                    AlreadyPosition = true;
-                    iTween.MoveTo(gameObject, iTween.Hash("x", LastObjectCollided.gameObject.transform.position.x, "Y", LastObjectCollided.gameObject.transform.position.y, "time", 4));
+                    iTween.MoveTo(gameObject, iTween.Hash("x", CollidingDropArea.gameObject.transform.position.x, "Y", CollidingDropArea.gameObject.transform.position.y, "time", RestoreSpeed));
                 }
                 else
                 {
-                    iTween.MoveTo(gameObject, iTween.Hash("x", StartingPosition.x, "Y", StartingPosition.y, "time", 4));
+                    iTween.MoveTo(gameObject, iTween.Hash("x", RestorePosition.x, "Y", RestorePosition.y, "time", RestoreSpeed));
                 }
             }
             else
             {
-                iTween.MoveTo(gameObject, iTween.Hash("x", StartingPosition.x, "Y", StartingPosition.y, "time", 4));
+                iTween.MoveTo(gameObject, iTween.Hash("x", RestorePosition.x, "Y", RestorePosition.y, "time", RestoreSpeed));
             }
             Debug.Log("Stop");
         }
-
-        public Action OnDrag { get { return Dragging; } }
-
-        private void Dragging()
-        {
-            Debug.Log("Dragging");
-        }
-
-
-
-
-        public GameObject LastObjectCollided { get; set; }
+        #endregion
     }
 }
