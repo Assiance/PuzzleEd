@@ -207,10 +207,10 @@ GameObject:
   m_Component:
   - 4: {fileID: 467975996}
   - 114: {fileID: 467976000}
-  - 114: {fileID: 467975999}
   - 212: {fileID: 467975998}
   - 50: {fileID: 467976001}
   - 58: {fileID: 467975997}
+  - 114: {fileID: 467975999}
   m_Layer: 0
   m_Name: Puzzle Piece
   m_TagString: Untagged
@@ -271,11 +271,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 467975995}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 39f78c1723f49514b99ec596a4a3cb42, type: 3}
+  m_Script: {fileID: 11500000, guid: c334291aac68f9242abddc246f97649b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   DragId: 
-  RevertPosition: 0
+  RestorePositionOnMissDrop: 0
+  RestoreSpeed: 1.29999995
 --- !u!114 &467976000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -311,10 +312,10 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 728050644}
-  - 114: {fileID: 728050643}
   - 212: {fileID: 728050642}
   - 61: {fileID: 728050641}
   - 114: {fileID: 728050640}
+  - 114: {fileID: 728050643}
   m_Layer: 0
   m_Name: Letter Piece
   m_TagString: Untagged
@@ -375,11 +376,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 728050639}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 39f78c1723f49514b99ec596a4a3cb42, type: 3}
+  m_Script: {fileID: 11500000, guid: c334291aac68f9242abddc246f97649b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   DragId: 
-  RevertPosition: 0
+  RestorePositionOnMissDrop: 0
+  RestoreSpeed: 1.29999995
 --- !u!4 &728050644
 Transform:
   m_ObjectHideFlags: 0
@@ -429,10 +431,10 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1309292089}
-  - 114: {fileID: 1309292093}
   - 212: {fileID: 1309292092}
   - 61: {fileID: 1309292091}
   - 114: {fileID: 1309292090}
+  - 114: {fileID: 1309292093}
   m_Layer: 0
   m_Name: Letter Piece
   m_TagString: Untagged
@@ -505,11 +507,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1309292088}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 39f78c1723f49514b99ec596a4a3cb42, type: 3}
+  m_Script: {fileID: 11500000, guid: c334291aac68f9242abddc246f97649b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   DragId: 
-  RevertPosition: 0
+  RestorePositionOnMissDrop: 0
+  RestoreSpeed: 1.29999995
 --- !u!1 &1483123560
 GameObject:
   m_ObjectHideFlags: 0
@@ -548,6 +551,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1550912765}
   - 114: {fileID: 1550912764}
+  - 114: {fileID: 1550912766}
   m_Layer: 0
   m_Name: Game Controller
   m_TagString: Untagged
@@ -578,6 +582,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
+--- !u!114 &1550912766
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1550912763}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 920fcae531d9c9b40846563640d8da64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GameSounds:
+  - {fileID: 8300000, guid: e9c49907ada66bb48976b9f5b8080943, type: 3}
+  Volume: 100
+  GamePrefsName: DefaultGame
 --- !u!1 &1911467952
 GameObject:
   m_ObjectHideFlags: 0
@@ -588,8 +607,8 @@ GameObject:
   - 4: {fileID: 1911467954}
   - 114: {fileID: 1911467953}
   - 212: {fileID: 1911467955}
-  - 114: {fileID: 1911467958}
   - 58: {fileID: 1911467956}
+  - 114: {fileID: 1911467957}
   m_Layer: 0
   m_Name: basepiece
   m_TagString: Untagged
@@ -654,7 +673,7 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_Radius: .0799999982
   m_Center: {x: 0, y: 0}
---- !u!114 &1911467958
+--- !u!114 &1911467957
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -662,7 +681,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1911467952}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa17e2b9fd30875478a2215f4832c773, type: 3}
+  m_Script: {fileID: 11500000, guid: 41d26ee4fc37c1d48af5173c267a054d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   DropId: 

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Assets.PuzzleEd.Scripts.Regular.Controllers;
 using UnityEngine;
 
 namespace Assets.PuzzleEd.Scripts.Regular.Actions
@@ -11,6 +12,8 @@ namespace Assets.PuzzleEd.Scripts.Regular.Actions
         protected override void DragStart()
         {
             base.DragStart();
+
+            BaseSoundController.Instance.PlaySoundByIndex(0, Vector3.zero);
         }
 
         protected override void Dragging(Vector2 newPosition)
