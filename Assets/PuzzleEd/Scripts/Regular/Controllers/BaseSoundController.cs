@@ -26,8 +26,7 @@ namespace Assets.PuzzleEd.Scripts.Regular.Controllers
 
         private void Start()
         {
-            //Get PlayerPrefs
-            //Volume = PlayerPrefs.GetFloat(GamePrefsName + "_SFXVol");
+            Volume = PlayerPrefs.GetFloat(GamePrefsName + "_SFXVol", Volume);
             _soundObjectList = new List<SoundObject>();
 
             foreach (var theSound in GameSounds)

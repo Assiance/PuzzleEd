@@ -13,7 +13,7 @@ namespace Assets.PuzzleEd.Scripts.Regular.Controllers
         private GameObject _sourceGameObject;
         private int _fadeState;
         private int _targetFadeState;
-        private float _volumeOn;
+        private float _volumeOn = 100f;
         private float _targetVolume;
 
         public string GamePrefsName = "DefaultGame";
@@ -24,9 +24,7 @@ namespace Assets.PuzzleEd.Scripts.Regular.Controllers
 
         void Start()
         {
-            //Will Fix Later
-            //_volumeOn = PlayerPrefs.GetFloat(GamePrefsName + "_MusicVol");
-            _volumeOn = 100;
+            _volumeOn = PlayerPrefs.GetFloat(GamePrefsName + "_MusicVol", _volumeOn);
             _sourceGameObject = new GameObject("Music_AudioSource");
             _source = _sourceGameObject.AddComponent<AudioSource>();
             _source.name = "MusicAudioSource";

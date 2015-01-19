@@ -313,9 +313,10 @@ GameObject:
   m_Component:
   - 4: {fileID: 728050644}
   - 212: {fileID: 728050642}
-  - 61: {fileID: 728050641}
   - 114: {fileID: 728050640}
   - 114: {fileID: 728050643}
+  - 50: {fileID: 728050645}
+  - 58: {fileID: 728050641}
   m_Layer: 0
   m_Name: Letter Piece
   m_TagString: Untagged
@@ -335,17 +336,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsPlaced: 0
---- !u!61 &728050641
-BoxCollider2D:
+--- !u!58 &728050641
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 728050639}
   m_Enabled: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Size: {x: .200000003, y: .200000003}
-  m_Center: {x: 0, y: 0}
+  m_IsTrigger: 1
+  m_Radius: .0799999982
+  m_Center: {x: 0, y: 1.16229057e-06}
 --- !u!212 &728050642
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -394,6 +395,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1260998455}
   m_RootOrder: 0
+--- !u!50 &728050645
+Rigidbody2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 728050639}
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: .0500000007
+  m_GravityScale: 1
+  m_FixedAngle: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
 --- !u!1 &1260998454
 GameObject:
   m_ObjectHideFlags: 0
@@ -432,9 +448,10 @@ GameObject:
   m_Component:
   - 4: {fileID: 1309292089}
   - 212: {fileID: 1309292092}
-  - 61: {fileID: 1309292091}
   - 114: {fileID: 1309292090}
   - 114: {fileID: 1309292093}
+  - 50: {fileID: 1309292094}
+  - 58: {fileID: 1309292091}
   m_Layer: 0
   m_Name: Letter Piece
   m_TagString: Untagged
@@ -466,17 +483,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsPlaced: 0
---- !u!61 &1309292091
-BoxCollider2D:
+--- !u!58 &1309292091
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1309292088}
   m_Enabled: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Size: {x: .200000003, y: .200000003}
-  m_Center: {x: 0, y: 0}
+  m_IsTrigger: 1
+  m_Radius: .0799999982
+  m_Center: {x: 3.7997961e-07, y: 0}
 --- !u!212 &1309292092
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -513,6 +530,21 @@ MonoBehaviour:
   DragId: 
   RestorePositionOnMissDrop: 0
   RestoreSpeed: 1.29999995
+--- !u!50 &1309292094
+Rigidbody2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1309292088}
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: .0500000007
+  m_GravityScale: 1
+  m_FixedAngle: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
 --- !u!1 &1483123560
 GameObject:
   m_ObjectHideFlags: 0
