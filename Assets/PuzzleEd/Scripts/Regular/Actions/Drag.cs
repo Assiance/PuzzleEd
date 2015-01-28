@@ -10,7 +10,7 @@ namespace Assets.PuzzleEd.Scripts.Regular.Actions
         public bool RestorePositionOnMissDrop;
         public float RestoreSpeed = 1.3f;
         public Vector3 RestorePosition { get; set; }
-
+        public bool Draggable = true;
         public GameObject CollidingDropArea { get; set; }
         private Vector2 _tempPosition;
 
@@ -41,11 +41,14 @@ namespace Assets.PuzzleEd.Scripts.Regular.Actions
 
         protected virtual void Dragging(Vector2 newPosition)
         {
-            Debug.Log("Dragging");
-            _tempPosition.x = newPosition.x;
-            _tempPosition.y = newPosition.y;
+            if (this.Draggable)
+            {
+                Debug.Log("Dragging");
+                _tempPosition.x = newPosition.x;
+                _tempPosition.y = newPosition.y;
 
-            CachedTransform.position = _tempPosition;
+                CachedTransform.position = _tempPosition;
+            }
         }
         #endregion
 
@@ -64,6 +67,7 @@ namespace Assets.PuzzleEd.Scripts.Regular.Actions
                 if (this.DragId == dropComponent.DropId)
                 {
                     iTween.MoveTo(gameObject, iTween.Hash("x", CollidingDropArea.gameObject.transform.position.x, "Y", CollidingDropArea.gameObject.transform.position.y, "time", RestoreSpeed));
+                    this.Draggable = false;
                 }
                 else
                 {

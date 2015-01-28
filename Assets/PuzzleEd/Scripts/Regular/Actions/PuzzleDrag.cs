@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using Assets.PuzzleEd.Scripts.Regular.Controllers;
 using UnityEngine;
-
+using Assets.PuzzleEd.Scripts.Regular.Enums;
 namespace Assets.PuzzleEd.Scripts.Regular.Actions
 {
     public class PuzzleDrag : Drag
@@ -13,7 +13,7 @@ namespace Assets.PuzzleEd.Scripts.Regular.Actions
         {
             base.DragStart();
 
-            BaseSoundController.Instance.PlaySoundByIndex(0, Vector3.zero);
+            BaseSoundController.Instance.PlaySoundByIndex(SoundStruct.puzzle, Vector3.zero);
         }
 
         protected override void Dragging(Vector2 newPosition)

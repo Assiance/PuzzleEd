@@ -9,7 +9,7 @@ namespace Assets.PuzzleEd.Scripts.Regular.Actions
         public string DropId;
 
         public Action OnDrop { get; private set; }
-
+        public bool EscapeOndrop = true;
         protected virtual void Dropping()
         {
             Debug.Log("Dropping");
@@ -54,7 +54,10 @@ namespace Assets.PuzzleEd.Scripts.Regular.Actions
             Drag dragComponent = coll.gameObject.GetComponent<Drag>();
 
             if (dragComponent != null)
+            {
                 dragComponent.CollidingDropArea = null;
+                dragComponent.Draggable = true;
+            }
             Debug.Log("collide");
         }
     }
