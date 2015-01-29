@@ -14,6 +14,7 @@ namespace Assets.PuzzleEd.Scripts.Regular.Controllers
         public AudioClip[] GameSounds;
         public float Volume = 100;
         public string GamePrefsName = "DefaultGame";
+        public bool PersistOnLoad = false;
 
         private List<SoundObject> _soundObjectList;
         private SoundObject _tempSoundObject;
@@ -33,6 +34,11 @@ namespace Assets.PuzzleEd.Scripts.Regular.Controllers
             {
                 _tempSoundObject = new SoundObject(theSound, theSound.name, Volume);
                 _soundObjectList.Add(_tempSoundObject);
+            }
+
+            if (PersistOnLoad)
+            {
+                DontDestroyOnLoad(this.gameObject);
             }
         }
 
