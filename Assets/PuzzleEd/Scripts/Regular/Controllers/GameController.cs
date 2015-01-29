@@ -36,7 +36,7 @@ namespace Assets.PuzzleEd.Scripts.Regular.Controllers
         void OnEnable()
         {
             _sceneManager = FindObjectOfType<SceneManager>();
-            _sceneManager.LevelNames = new string[4] {"MainMenuScene", "TestScene", "BradScene", "MarlonScene"};
+            _sceneManager.LevelNames = new string[2] {"MainMenuScene", "Level1"};
         }
 
         void Update()
@@ -46,6 +46,21 @@ namespace Assets.PuzzleEd.Scripts.Regular.Controllers
 
             if (Input.GetKeyDown(KeyCode.Space))
                 _sceneManager.GoToNextLevel();
+        }
+
+        public void PuzzleFinished()
+        {
+            Debug.Log("Puzzle Finished");
+        }
+
+        public void LettersFinished()
+        {
+            Debug.Log("Letters Finished");
+        }
+
+        public void LevelFinished()
+        {
+            Debug.Log("Level Finished");
         }
     }
 }

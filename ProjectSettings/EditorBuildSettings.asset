@@ -12,8 +12,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/PuzzleEd/Scenes/MainMenuScene.unity
   - enabled: 1
-    path: Assets/PuzzleEd/Scenes/TestScene.unity
+    path: Assets/PuzzleEd/Scenes/Level1.unity
   - enabled: 1
-    path: Assets/PuzzleEd/Scenes/BradScene.unity
-  - enabled: 1
-    path: Assets/PuzzleEd/Scenes/MarlonScene.unity
+    path: Assets/PuzzleEd/Scenes/PlayScene.unity
