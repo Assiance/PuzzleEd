@@ -9,7 +9,6 @@ namespace Assets.PuzzleEd.Scripts.Regular.Enums
     {
         public static int ODragStop = 0;
         public static int OnDragStart = 1;
-        public static int ODropStop = 2;
         public static int OnDropStart = 3;
         public static int Touch = 4;
         public static int Ambient = 5;
