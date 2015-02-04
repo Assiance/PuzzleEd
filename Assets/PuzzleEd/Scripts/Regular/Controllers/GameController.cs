@@ -36,7 +36,7 @@ namespace Assets.PuzzleEd.Scripts.Regular.Controllers
         void OnEnable()
         {
             _sceneManager = FindObjectOfType<SceneManager>();
-            _sceneManager.LevelNames = new string[2] {"MainMenuScene", "Level1"};
+            _sceneManager.LevelNames = new string[3] { "MainMenuScene", "Level1", "Level2" };
         }
 
         void Update()
