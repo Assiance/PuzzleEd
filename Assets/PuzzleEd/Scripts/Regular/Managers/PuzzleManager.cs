@@ -22,16 +22,6 @@ namespace Assets.PuzzleEd.Scripts.Regular.Managers
         public List<GameObject> PuzzlePlacements { get; set; }
         public List<GameObject> LetterPlacements { get; set; } 
 
-        private void Start()
-        {
-            PuzzlePieces = FindObjectsOfType<PuzzlePiece>().ToList();
-            LetterPieces = FindObjectsOfType<LetterPiece>().ToList();
-            PuzzlePlacements = GameObject.FindGameObjectsWithTag("PuzzlePlacement").ToList();
-            LetterPlacements = GameObject.FindGameObjectsWithTag("LetterPlacement").ToList();
-
-            StartCoroutine(CheckIfPuzzlePiecesFinished());
-        }
-
         private IEnumerator CheckIfPuzzlePiecesFinished()
         {
             while (PuzzlePieces.Any(i => i.IsPlaced == false))
@@ -59,6 +49,13 @@ namespace Assets.PuzzleEd.Scripts.Regular.Managers
 
         public void InitiatePuzzle(string puzzleName)
         {
+            PuzzlePieces = FindObjectsOfType<PuzzlePiece>().ToList();
+            LetterPieces = FindObjectsOfType<LetterPiece>().ToList();
+            PuzzlePlacements = GameObject.FindGameObjectsWithTag("PuzzlePlacement").ToList();
+            LetterPlacements = GameObject.FindGameObjectsWithTag("LetterPlacement").ToList();
+
+            StartCoroutine(CheckIfPuzzlePiecesFinished());
+
             foreach (var puzzlePiece in PuzzlePieces)
             {
                 puzzlePiece.gameObject.transform.position = new Vector2(0f, 30f);
@@ -96,6 +93,8 @@ namespace Assets.PuzzleEd.Scripts.Regular.Managers
 
         public void PuzzleFinished()
         {
+            StopCoroutine(CheckIfPuzzlePiecesFinished());
+
             //bubble puzzle pieces
             //replaces pieces with full pic and move to center of screen
             //Say animal name
@@ -128,6 +127,7 @@ namespace Assets.PuzzleEd.Scripts.Regular.Managers
 
         public void LettersFinished()
         {
+            StopCoroutine(CheckIfLetterPiecesFinished());
             //Spell Animal Name
             //Say Animal Name
             //Make Animal Noise
