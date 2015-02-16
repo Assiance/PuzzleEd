@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using Assets.PuzzleEd.Scripts.Regular.Actions;
 using Assets.PuzzleEd.Scripts.Regular.Controllers;
 using Assets.PuzzleEd.Scripts.Regular.Entities;
@@ -57,7 +55,6 @@ namespace Assets.PuzzleEd.Scripts.Regular.Managers
 
             Debug.Log("All Letter Pieces in Position");
             GameController.Instance.LettersFinished();
-            GameController.Instance.LevelFinished();
         }
 
         public void InitiatePuzzle(string puzzleName)
@@ -131,7 +128,12 @@ namespace Assets.PuzzleEd.Scripts.Regular.Managers
 
         public void LettersFinished()
         {
-            //
+            //Spell Animal Name
+            //Say Animal Name
+            //Make Animal Noise
+            //Go to next level
+            GameController.Instance.LevelFinished();
+            
         }
 
 

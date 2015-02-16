@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Assets.PuzzleEd.Scripts.Regular.Inputs
 {
-    public class DragInput : ESMonoBehaviour
+    public class DragTouchInput : ESMonoBehaviour
     {
         private RaycastHit2D _hit;
         private Drag _dragComponent;

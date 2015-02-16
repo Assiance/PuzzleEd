@@ -37,7 +37,7 @@ namespace Assets.PuzzleEd.Scripts.Regular.Controllers
         void OnEnable()
         {
             _sceneManager = FindObjectOfType<SceneManager>();
-            _sceneManager.LevelNames = new string[3] { "MainMenuScene", "Level1", "Level2" };
+            _sceneManager.LevelNames = new string[2] { "Level1", "Level2" };
 
             _puzzleManager = FindObjectOfType<PuzzleManager>();
         }
@@ -53,19 +53,20 @@ namespace Assets.PuzzleEd.Scripts.Regular.Controllers
 
         public void PuzzleFinished()
         {
-            _puzzleManager.PuzzleFinished();
             Debug.Log("Puzzle Finished");
+            _puzzleManager.PuzzleFinished(); 
         }
 
         public void LettersFinished()
         {
-            _puzzleManager.LettersFinished();
             Debug.Log("Letters Finished");
+            _puzzleManager.LettersFinished();
         }
 
         public void LevelFinished()
         {
             Debug.Log("Level Finished");
+            _sceneManager.GoToNextLevel();
         }
     }
 }
