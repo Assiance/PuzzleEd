@@ -11,7 +11,7 @@ namespace Assets.PuzzleEd.Scripts.Regular.Scene
     {
         public void PlayGame()
         {
-            Application.LoadLevel("PlayScene");
+            Application.LoadLevel("Level1");
         }
     }
 }

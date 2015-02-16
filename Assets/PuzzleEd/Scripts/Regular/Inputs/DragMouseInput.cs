@@ -42,6 +42,7 @@ namespace Assets.PuzzleEd.Scripts.Regular.Inputs
                     {
                         _dragComponent.BeingTouched = false;
                         _dragComponent.OnStop();
+                        _dragComponent = null;
                     }
                 }
             }

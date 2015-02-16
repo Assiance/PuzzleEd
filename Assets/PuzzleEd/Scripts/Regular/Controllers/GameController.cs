@@ -42,12 +42,14 @@ namespace Assets.PuzzleEd.Scripts.Regular.Controllers
             _puzzleManager = FindObjectOfType<PuzzleManager>();
         }
 
-        void Update()
-        {
-        }
-
         void Start()
         {
+            StartGame();
+        }
+
+        public override void StartGame()
+        {
+            base.StartGame();
             _puzzleManager.InitiatePuzzle("Cat");
         }
 
