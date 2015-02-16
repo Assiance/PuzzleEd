@@ -27,7 +27,10 @@ namespace Assets.PuzzleEd.Scripts.Regular.Inputs
                     case TouchPhase.Began:
                         GetHitObject();
                         if (_dragComponent != null)
+                        {
+                            _dragComponent.BeingTouched = true;
                             _dragComponent.OnStart();
+                        }
                         break;
                     case TouchPhase.Moved:
                         if (_dragComponent != null)
@@ -35,7 +38,10 @@ namespace Assets.PuzzleEd.Scripts.Regular.Inputs
                         break;
                     case TouchPhase.Ended:
                         if (_dragComponent != null)
+                        {
+                            _dragComponent.BeingTouched = false;
                             _dragComponent.OnStop();
+                        }
                         break;
                 }
             }

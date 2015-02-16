@@ -7,6 +7,7 @@ namespace Assets.PuzzleEd.Scripts.Regular.Controllers
     public class GameController : BaseGameController
     {
         private SceneManager _sceneManager;
+        private PuzzleManager _puzzleManager;
 
         #region Singleton
         private static GameController _instance;
@@ -37,24 +38,28 @@ namespace Assets.PuzzleEd.Scripts.Regular.Controllers
         {
             _sceneManager = FindObjectOfType<SceneManager>();
             _sceneManager.LevelNames = new string[3] { "MainMenuScene", "Level1", "Level2" };
+
+            _puzzleManager = FindObjectOfType<PuzzleManager>();
         }
 
         void Update()
         {
-            if (Input.GetKeyDown(KeyCode.R))
-                _sceneManager.LoadLevel(_sceneManager.LevelNames[0]);
+        }
 
-            if (Input.GetKeyDown(KeyCode.Space))
-                _sceneManager.GoToNextLevel();
+        void Start()
+        {
+            _puzzleManager.InitiatePuzzle("Cat");
         }
 
         public void PuzzleFinished()
         {
+            _puzzleManager.PuzzleFinished();
             Debug.Log("Puzzle Finished");
         }
 
         public void LettersFinished()
         {
+            _puzzleManager.LettersFinished();
             Debug.Log("Letters Finished");
         }
 

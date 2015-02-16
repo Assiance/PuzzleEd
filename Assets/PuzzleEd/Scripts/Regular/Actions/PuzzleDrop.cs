@@ -2,24 +2,36 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Assets.PuzzleEd.Scripts.Regular.Entities;
 
 namespace Assets.PuzzleEd.Scripts.Regular.Actions
 {
     public class PuzzleDrop : Drop
     {
-        protected override void Dropping()
+        protected override void SuccessDrop(Drag dragComponent)
         {
-            base.Dropping();
+            base.SuccessDrop(dragComponent);
+
+            var piece = dragComponent.GetComponent<Piece>();
+            piece.IsPlaced = true;
         }
 
-        protected override void DropHover()
+        protected override void FailDrop(Drag dragComponent)
         {
-            base.DropHover();
+            base.FailDrop(dragComponent);
         }
 
-        protected override void DropOut()
+        protected override void DropHover(Drag dragComponent)
         {
-            base.DropOut();
+            base.DropHover(dragComponent);
+        }
+
+        protected override void DropOut(Drag dragComponent)
+        {
+            base.DropOut(dragComponent);
+
+            var piece = dragComponent.GetComponent<Piece>();
+            piece.IsPlaced = false;
         }
     }
 }

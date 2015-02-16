@@ -7,7 +7,7 @@ namespace Assets.PuzzleEd.Scripts.Regular.Enums
 {
     public struct SoundStruct
     {
-        public static int ODragStop = 0;
+        public static int OnDragStop = 0;
         public static int OnDragStart = 1;
         public static int OnDropStart = 3;
         public static int Touch = 4;

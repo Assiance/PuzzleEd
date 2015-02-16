@@ -7,47 +7,75 @@ namespace Assets.PuzzleEd.Scripts.Regular.Actions
     public class Drop : ESMonoBehaviour
     {
         public string DropId;
-
-        public Action OnDrop { get; private set; }
         public bool EscapeOndrop = true;
-        protected virtual void Dropping()
+
+        public Action<Drag> OnSuccessDrop { get { return SuccessDrop; } }
+ 
+        protected virtual void SuccessDrop(Drag dragComponent)
         {
-            Debug.Log("Dropping");
+            Debug.Log("Successful Drop");
         }
 
-        public Action OnHover { get; private set; }
+        public Action<Drag> OnFailDrop { get { return FailDrop; } }
 
-        protected virtual void DropHover()
+        protected virtual void FailDrop(Drag dragComponent)
+        {
+            Debug.Log("Fail Drop");
+        }
+
+        public Action<Drag> OnHover { get { return DropHover; } }
+
+        protected virtual void DropHover(Drag dragComponent)
         {
             Debug.Log("Hover");
         }
 
-        public Action OnOut { get; private set; }
+        public Action<Drag> OnOut { get { return DropOut; } }
 
-        protected virtual void DropOut()
+        protected virtual void DropOut(Drag dragComponent)
         {
             Debug.Log("Out");
         }
 
         void OnTriggerEnter2D(Collider2D coll)
         {
-            Drag dragComponent = coll.gameObject.GetComponent<Drag>();
-
-            if(dragComponent != null)
-                dragComponent.CollidingDropArea = gameObject;
-            Debug.Log("collide");
+           
         }
 
-        //Figure out how to call onDrop
-        //void OnTriggerStay2D(Collider2D coll)
-        //{
-        //    Drag dragComponent = coll.gameObject.GetComponent<Drag>();
+        void OnTriggerStay2D(Collider2D coll)
+        {
+            Drag dragComponent = coll.gameObject.GetComponent<Drag>();
 
-        //    if(dragComponent != null && dragComponent.Draggable !)
-        //        dragComponent.
+            if (dragComponent != null)
+            {
+                if(dragComponent.CollidingDropArea == null)
+                    dragComponent.CollidingDropArea = gameObject;
 
-        //    OnOver();
-        //}
+                //Hover
+                if (dragComponent.Dropped == false && dragComponent.BeingTouched)
+                {
+                    OnHover(dragComponent);
+                }
+
+                //Drop
+                if (dragComponent.Dropped == false && dragComponent.BeingTouched == false)
+                {
+                    dragComponent.Dropped = true;
+
+                    if (dragComponent.DragId == DropId)
+                    {
+                        OnSuccessDrop(dragComponent);
+
+                        if (EscapeOndrop == false)
+                            dragComponent.Draggable = false;
+                    }
+
+                    OnFailDrop(dragComponent);
+                }
+            }
+
+            Debug.Log("collide");
+        }
 
         void OnTriggerExit2D(Collider2D coll)
         {
@@ -56,8 +84,11 @@ namespace Assets.PuzzleEd.Scripts.Regular.Actions
             if (dragComponent != null)
             {
                 dragComponent.CollidingDropArea = null;
-                dragComponent.Draggable = true;
+                dragComponent.Dropped = false;
+
+                OnOut(dragComponent);
             }
+
             Debug.Log("collide");
         }
     }

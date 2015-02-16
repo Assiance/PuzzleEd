@@ -13,7 +13,7 @@ namespace Assets.PuzzleEd.Scripts.Regular.Actions
         {
             base.DragStart();
 
-            BaseSoundController.Instance.PlaySoundByIndex(SoundStruct.ODragStop, Vector3.zero);
+            BaseSoundController.Instance.PlaySoundByIndex(SoundStruct.OnDragStop, Vector3.zero);
         }
 
         protected override void Dragging(Vector2 newPosition)
