@@ -1,4 +1,5 @@
 ﻿using Assets.PuzzleEd.Scripts.Regular.Framework;
+using Assets.PuzzleEd.Scripts.Regular.General;
 using Assets.PuzzleEd.Scripts.Regular.Managers;
 using UnityEngine;
 
@@ -68,6 +69,9 @@ namespace Assets.PuzzleEd.Scripts.Regular.Controllers
         public void LevelFinished()
         {
             Debug.Log("Level Finished");
+            //call fade scrip 
+            float fadeTime = gameObject.GetComponent<FadeInOut>().BeginFade(-1);
+             new WaitForSeconds(fadeTime);
             _sceneManager.GoToNextLevel();
         }
     }
