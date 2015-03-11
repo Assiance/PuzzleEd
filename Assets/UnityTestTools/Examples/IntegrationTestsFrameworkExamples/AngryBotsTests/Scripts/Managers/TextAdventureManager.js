@@ -19,7 +19,7 @@ function Start () {
 	var rightIcon = new GameObject ("Right Arrow", GUIText);
 
 #if UNITY_IPHONE || UNITY_ANDROID || UNITY_WP8 || UNITY_BLACKBERRY
-	leftIcon.guiText.text = "<";
+	leftIcon.GetComponent.<GUIText>().text = "<";
 #else
 	leftIcon.GetComponent.<GUIText>().text = "< backspace";		
 #endif
@@ -33,7 +33,7 @@ function Start () {
 	leftIcon.transform.position.y = 0.1f;
 
 #if UNITY_IPHONE || UNITY_ANDROID || UNITY_WP8 || UNITY_BLACKBERRY
-	rightIcon.guiText.text = ">";
+	rightIcon.GetComponent.<GUIText>().text = ">";
 #else
 	rightIcon.GetComponent.<GUIText>().text = "space >";		
 #endif
