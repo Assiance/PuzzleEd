@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using Assets.PuzzleEd.Scripts.Regular.Actions;
 using Assets.PuzzleEd.Scripts.Regular.Controllers;
 using Assets.PuzzleEd.Scripts.Regular.Entities;
@@ -20,7 +21,8 @@ namespace Assets.PuzzleEd.Scripts.Regular.Managers
         public List<LetterPiece> LetterPieces { get; set; }
 
         public List<GameObject> PuzzlePlacements { get; set; }
-        public List<GameObject> LetterPlacements { get; set; } 
+        public List<GameObject> LetterPlacements { get; set; }
+        public List<LetterDrop> LetterDrops { get; set; }
 
         private IEnumerator CheckIfPuzzlePiecesFinished()
         {
@@ -50,9 +52,21 @@ namespace Assets.PuzzleEd.Scripts.Regular.Managers
         public void InitiatePuzzle(string puzzleName)
         {
             PuzzlePieces = FindObjectsOfType<PuzzlePiece>().ToList();
-            LetterPieces = FindObjectsOfType<LetterPiece>().ToList();
+            LetterPieces = FindObjectsOfType<LetterPiece>().Where(x => x.IsEnglish != GameController.Instance.IsSpanish).ToList();
+            LetterDrops = FindObjectsOfType<LetterDrop>().ToList();
+
+            LetterDrops.ForEach(x => x.gameObject.SetActive(false));
+
             PuzzlePlacements = GameObject.FindGameObjectsWithTag("PuzzlePlacement").ToList();
-            LetterPlacements = GameObject.FindGameObjectsWithTag("LetterPlacement").ToList();
+
+            if (GameController.Instance.IsSpanish == true)
+            {
+                LetterPlacements = GameObject.FindGameObjectsWithTag("LetterPlacementSpanish").ToList();
+            }
+            else
+            {
+                LetterPlacements = GameObject.FindGameObjectsWithTag("LetterPlacement").ToList();
+            }
 
             StartCoroutine(CheckIfPuzzlePiecesFinished());
 
@@ -99,6 +113,9 @@ namespace Assets.PuzzleEd.Scripts.Regular.Managers
             //replaces pieces with full pic and move to center of screen
             //Say animal name
             //Make animal noise
+            LetterDrops.Where(x => x.IsEnglish != GameController.Instance.IsSpanish).ToList().
+                ForEach(x => x.gameObject.SetActive(true));
+
             LoadLetters();
         }
 

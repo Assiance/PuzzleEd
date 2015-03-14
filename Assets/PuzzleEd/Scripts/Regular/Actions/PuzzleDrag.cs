@@ -28,7 +28,7 @@ namespace Assets.PuzzleEd.Scripts.Regular.Actions
         {
             base.Dragging(newPosition);
 
-            if (puzzlePiece.ParticleTrail.isPlaying == false)
+            if (puzzlePiece.ParticleTrail != null && puzzlePiece.ParticleTrail.isPlaying == false)
                 puzzlePiece.ParticleTrail.Play();
         }
 
@@ -36,7 +36,7 @@ namespace Assets.PuzzleEd.Scripts.Regular.Actions
         {
             base.DragStop();
 
-            if (puzzlePiece.ParticleTrail.isPlaying)
+            if (puzzlePiece.ParticleTrail != null && puzzlePiece.ParticleTrail.isPlaying)
                 puzzlePiece.ParticleTrail.Stop();
         }
     }

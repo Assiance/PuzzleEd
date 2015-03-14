@@ -69,11 +69,16 @@ namespace Assets.PuzzleEd.Scripts.Regular.Actions
             }
             else
             {
-                iTween.MoveTo(gameObject, iTween.Hash("x", RestorePosition.x, "Y", RestorePosition.y, "time", RestoreSpeed));
+                RestoreToInitialPosition();
             }
 
             Debug.Log("Stop");
         }
         #endregion
+
+        public void RestoreToInitialPosition()
+        {
+            iTween.MoveTo(gameObject, iTween.Hash("x", RestorePosition.x, "Y", RestorePosition.y, "time", RestoreSpeed));
+        }
     }
 }

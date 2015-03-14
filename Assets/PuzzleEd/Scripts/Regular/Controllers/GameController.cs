@@ -1,4 +1,5 @@
-﻿using Assets.PuzzleEd.Scripts.Regular.Framework;
+﻿using System;
+using Assets.PuzzleEd.Scripts.Regular.Framework;
 using Assets.PuzzleEd.Scripts.Regular.General;
 using Assets.PuzzleEd.Scripts.Regular.Managers;
 using UnityEngine;
@@ -9,6 +10,8 @@ namespace Assets.PuzzleEd.Scripts.Regular.Controllers
     {
         private SceneManager _sceneManager;
         private PuzzleManager _puzzleManager;
+        public bool IsSpanish = false;
+        public string GamePrefsName = "DefaultGame";
 
         #region Singleton
         private static GameController _instance;
@@ -37,6 +40,7 @@ namespace Assets.PuzzleEd.Scripts.Regular.Controllers
 
         void OnEnable()
         {
+            IsSpanish = Convert.ToBoolean(PlayerPrefs.GetInt(GamePrefsName + "_Language"));
             _sceneManager = FindObjectOfType<SceneManager>();
             _sceneManager.LevelNames = new string[2] { "Level1", "Level2" };
 
@@ -69,7 +73,7 @@ namespace Assets.PuzzleEd.Scripts.Regular.Controllers
         public void LevelFinished()
         {
             Debug.Log("Level Finished");
-            //call fade scrip 
+            //call fade script
             float fadeTime = gameObject.GetComponent<FadeInOut>().BeginFade(-1);
 
              new WaitForSeconds(fadeTime);

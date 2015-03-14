@@ -21,6 +21,7 @@ namespace Assets.PuzzleEd.Scripts.Regular.Actions
         protected virtual void FailDrop(Drag dragComponent)
         {
             Debug.Log("Fail Drop");
+            dragComponent.RestoreToInitialPosition();
         }
 
         public Action<Drag> OnHover { get { return DropHover; } }
@@ -69,8 +70,10 @@ namespace Assets.PuzzleEd.Scripts.Regular.Actions
                         if (EscapeOndrop == false)
                             dragComponent.Draggable = false;
                     }
-
-                    OnFailDrop(dragComponent);
+                    else
+                    {
+                        OnFailDrop(dragComponent);
+                    }
                 }
             }
 
