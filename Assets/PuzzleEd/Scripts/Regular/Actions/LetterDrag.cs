@@ -8,13 +8,13 @@ using UnityEngine;
 using Assets.PuzzleEd.Scripts.Regular.Enums;
 namespace Assets.PuzzleEd.Scripts.Regular.Actions
 {
-    public class PuzzleDrag : Drag
+    public class LetterDrag : Drag
     {
-        private PuzzlePiece puzzlePiece;
+        private LetterPiece letterPiece;
 
         void Awake()
         {
-            puzzlePiece = GetComponent<PuzzlePiece>();
+            letterPiece = GetComponent<LetterPiece>();
         }
 
         protected override void DragStart()
@@ -28,16 +28,16 @@ namespace Assets.PuzzleEd.Scripts.Regular.Actions
         {
             base.Dragging(newPosition);
 
-            if (puzzlePiece.ParticleTrail != null && puzzlePiece.ParticleTrail.isPlaying == false)
-                puzzlePiece.ParticleTrail.Play();
+            if (letterPiece.ParticleTrail != null && letterPiece.ParticleTrail.isPlaying == false)
+                letterPiece.ParticleTrail.Play();
         }
 
         protected override void DragStop()
         {
             base.DragStop();
 
-            if (puzzlePiece.ParticleTrail != null && puzzlePiece.ParticleTrail.isPlaying)
-                puzzlePiece.ParticleTrail.Stop();
+            if (letterPiece.ParticleTrail != null && letterPiece.ParticleTrail.isPlaying)
+                letterPiece.ParticleTrail.Stop();
         }
     }
 }

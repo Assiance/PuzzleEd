@@ -16,13 +16,15 @@ namespace Assets.PuzzleEd.Scripts.Regular.Managers
 
         [HideInInspector]
         public List<PuzzlePiece> PuzzlePieces { get; set; }
-
+        public List<PuzzleDrop> PuzzleDrops { get; set; }
+        
         [HideInInspector]
         public List<LetterPiece> LetterPieces { get; set; }
 
         public List<GameObject> PuzzlePlacements { get; set; }
         public List<GameObject> LetterPlacements { get; set; }
         public List<LetterDrop> LetterDrops { get; set; }
+        public GameObject CompletedPuzzle { get; set; }
 
         private IEnumerator CheckIfPuzzlePiecesFinished()
         {
@@ -52,8 +54,10 @@ namespace Assets.PuzzleEd.Scripts.Regular.Managers
         public void InitiatePuzzle(string puzzleName)
         {
             PuzzlePieces = FindObjectsOfType<PuzzlePiece>().ToList();
+            PuzzleDrops = FindObjectsOfType<PuzzleDrop>().ToList();
             LetterPieces = FindObjectsOfType<LetterPiece>().Where(x => x.IsEnglish != GameController.Instance.IsSpanish).ToList();
             LetterDrops = FindObjectsOfType<LetterDrop>().ToList();
+            CompletedPuzzle = GameObject.FindGameObjectWithTag("CompletedPuzzle");
 
             LetterDrops.ForEach(x => x.gameObject.SetActive(false));
 
@@ -70,17 +74,11 @@ namespace Assets.PuzzleEd.Scripts.Regular.Managers
 
             StartCoroutine(CheckIfPuzzlePiecesFinished());
 
-            foreach (var puzzlePiece in PuzzlePieces)
-            {
-                puzzlePiece.gameObject.transform.position = new Vector2(0f, 30f);
-            }
-
             foreach (var letterPiece in LetterPieces)
             {
                 letterPiece.gameObject.transform.position = new Vector2(0f, 30f);
             }
 
-            //LoadLetters();
             LoadPuzzle();
         }
 
@@ -88,7 +86,7 @@ namespace Assets.PuzzleEd.Scripts.Regular.Managers
         {
             foreach (var piece in PuzzlePieces)
             {
-                iTween.MoveTo(piece.gameObject, Vector3.zero, 2f);
+                iTween.MoveBy(piece.gameObject, new Vector3(0f, -8.84f), 2f);
             }
 
             var rnd = new System.Random();
@@ -109,18 +107,46 @@ namespace Assets.PuzzleEd.Scripts.Regular.Managers
         {
             StopCoroutine(CheckIfPuzzlePiecesFinished());
 
-            //bubble puzzle pieces
-            //replaces pieces with full pic and move to center of screen
+            CompletedPuzzle.SetActive(false);
+            PuzzleDrops.ForEach(x => x.gameObject.SetActive(false));
+
+            BubblePuzzlePieces();
+            iTween.MoveTo(CompletedPuzzle, iTween.Hash("position", Vector3.zero,
+                                                                      "time", 2f,
+                                                                      "delay", 2f,
+                                                                      "oncomplete", "LoadLetters",
+                                                                      "oncompletetarget", GameController.Instance.gameObject));
+        }
+
+        private void MovePuzzleToCenter()
+        {
+            PuzzlePieces.ForEach(x => x.gameObject.SetActive(false));
+            var CompletedPuzzleRenderer = CompletedPuzzle.GetComponent<SpriteRenderer>();
+            CompletedPuzzleRenderer.color = Color.white;
+            CompletedPuzzleRenderer.sortingOrder = -1;
+
+            CompletedPuzzle.SetActive(true);
+        }
+
+        private void BubblePuzzlePieces()
+        {
+            for (int i = 0; i < PuzzlePieces.Count; i++)
+            {
+                iTween.PunchScale(PuzzlePieces[i].gameObject, iTween.Hash("amount", new Vector3(.2f, .2f, 0f),
+                    "time", 2f,
+                    "delay", (i/8f),
+                    "oncomplete", "MovePuzzleToCenter",
+                    "oncompletetarget", GameController.Instance.gameObject));
+            }
+        }
+
+        private void LoadLetters()
+        {
             //Say animal name
             //Make animal noise
             LetterDrops.Where(x => x.IsEnglish != GameController.Instance.IsSpanish).ToList().
                 ForEach(x => x.gameObject.SetActive(true));
 
-            LoadLetters();
-        }
-
-        private void LoadLetters()
-        {
             for (int i = 0; i < LetterPieces.Count; i++)
             {
                 iTween.MoveTo(LetterPieces[i].gameObject, iTween.Hash("position", Vector3.zero,
