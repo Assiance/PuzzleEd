@@ -55,7 +55,7 @@ namespace Assets.PuzzleEd.Scripts.Regular.Controllers
         public override void StartGame()
         {
             base.StartGame();
-            _puzzleManager.InitiatePuzzle("Cat");
+            _puzzleManager.InitiatePuzzle();
         }
 
         public void PuzzleFinished()

@@ -15,6 +15,7 @@ namespace Assets.PuzzleEd.Scripts.Regular.Actions
         void Awake()
         {
             letterPiece = GetComponent<LetterPiece>();
+            letterPiece.Character = DragId;
         }
 
         protected override void DragStart()

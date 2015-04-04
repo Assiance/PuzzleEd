@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
@@ -51,11 +52,25 @@ namespace Assets.PuzzleEd.Scripts.Regular.Managers
             GameController.Instance.LettersFinished();
         }
 
-        public void InitiatePuzzle(string puzzleName)
+        public void InitiatePuzzle()
         {
             PuzzlePieces = FindObjectsOfType<PuzzlePiece>().ToList();
             PuzzleDrops = FindObjectsOfType<PuzzleDrop>().ToList();
             LetterPieces = FindObjectsOfType<LetterPiece>().Where(x => x.IsEnglish != GameController.Instance.IsSpanish).ToList();
+
+            var tempList = new List<LetterPiece>();
+
+            //Sort By PuzzleName
+            foreach (var letter in PuzzleName)
+            {
+                var item = LetterPieces.First(x => x.Character.ToLower() == letter.ToString().ToLower());
+
+                tempList.Add(item);
+                LetterPieces.Remove(item);
+            }
+
+            LetterPieces.AddRange(tempList);
+
             LetterDrops = FindObjectsOfType<LetterDrop>().ToList();
             CompletedPuzzle = GameObject.FindGameObjectWithTag("CompletedPuzzle");
 
@@ -111,21 +126,26 @@ namespace Assets.PuzzleEd.Scripts.Regular.Managers
             PuzzleDrops.ForEach(x => x.gameObject.SetActive(false));
 
             BubblePuzzlePieces();
-            iTween.MoveTo(CompletedPuzzle, iTween.Hash("position", Vector3.zero,
-                                                                      "time", 2f,
-                                                                      "delay", 2f,
-                                                                      "oncomplete", "LoadLetters",
-                                                                      "oncompletetarget", GameController.Instance.gameObject));
         }
 
         private void MovePuzzleToCenter()
         {
             PuzzlePieces.ForEach(x => x.gameObject.SetActive(false));
-            var CompletedPuzzleRenderer = CompletedPuzzle.GetComponent<SpriteRenderer>();
-            CompletedPuzzleRenderer.color = Color.white;
-            CompletedPuzzleRenderer.sortingOrder = -1;
+            var completedPuzzleRenderer = CompletedPuzzle.GetComponent<SpriteRenderer>();
+            completedPuzzleRenderer.color = Color.white;
+            completedPuzzleRenderer.sortingOrder = -1;
 
             CompletedPuzzle.SetActive(true);
+
+            iTween.MoveTo(CompletedPuzzle, iTween.Hash("position", Vector3.zero,
+                                                                      "time", 2f,
+                                                                      "delay", 2f));
+
+            iTween.PunchScale(CompletedPuzzle, iTween.Hash("amount", new Vector3(.1f, .1f, 0f),
+                                                                      "time", 1f,
+                                                                      "delay", 3f,
+                                                                      "oncomplete", "LoadLetters",
+                                                                      "oncompletetarget", GameController.Instance.gameObject));
         }
 
         private void BubblePuzzlePieces()
@@ -140,23 +160,46 @@ namespace Assets.PuzzleEd.Scripts.Regular.Managers
             }
         }
 
+        private IEnumerator PlaceLettersAnimation()
+        {
+            var tempList = new List<LetterDrop>();
+            tempList.AddRange(LetterDrops);
+
+            foreach (var letterPiece in LetterPieces)
+            {
+                var item = tempList.First(x => x.DropId == letterPiece.Character);
+                letterPiece.transform.position = new Vector2(item.CachedTransform.position.x, item.CachedTransform.position.y);
+                tempList.Remove(item);
+
+                iTween.PunchScale(letterPiece.gameObject, iTween.Hash("amount", new Vector3(.2f, .2f, 0f),
+                    "time", 1f));
+
+                yield return new WaitForSeconds(1.1f);
+            }
+
+            foreach (var letterPiece in LetterPieces)
+            {
+                print(1);
+                iTween.PunchScale(letterPiece.gameObject, iTween.Hash("amount", new Vector3(.2f, .2f, 0f),
+                    "time", 1f));
+            }
+
+            StartCoroutine(MoveLettersToPlacements());
+        }
+
         private void LoadLetters()
         {
             //Say animal name
             //Make animal noise
-            LetterDrops.Where(x => x.IsEnglish != GameController.Instance.IsSpanish).ToList().
-                ForEach(x => x.gameObject.SetActive(true));
-
-            for (int i = 0; i < LetterPieces.Count; i++)
-            {
-                iTween.MoveTo(LetterPieces[i].gameObject, iTween.Hash("position", Vector3.zero,
-                                                                      "time", 2f,
-                                                                      "delay", i * 2f));
-            }
+            StartCoroutine(PlaceLettersAnimation());
 
             //One letter piece comes to bottom of screen at a time.
             //Says Letter when it comes down.
             //Move letters in a random order to the top of screen.
+        }
+
+        private IEnumerator MoveLettersToPlacements()
+        {
             var rnd = new System.Random();
             var randomLetters = LetterPieces.OrderBy(x => rnd.Next()).ToList();
 
@@ -164,8 +207,13 @@ namespace Assets.PuzzleEd.Scripts.Regular.Managers
             {
                 iTween.MoveTo(randomLetters[i].gameObject, iTween.Hash("position", new Vector3(LetterPlacements[i].transform.position.x, LetterPlacements[i].transform.position.y, 0f),
                                                                       "time", 2f,
-                                                                      "delay", 10f));
+                                                                      "delay", 3f));
             }
+
+            yield return new WaitForSeconds(3.5f);
+
+            LetterDrops.Where(x => x.IsEnglish != GameController.Instance.IsSpanish).ToList().
+                ForEach(x => x.gameObject.SetActive(true));
         }
 
         public void LettersFinished()
