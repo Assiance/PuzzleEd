@@ -179,7 +179,6 @@ namespace Assets.PuzzleEd.Scripts.Regular.Managers
 
             foreach (var letterPiece in LetterPieces)
             {
-                print(1);
                 iTween.PunchScale(letterPiece.gameObject, iTween.Hash("amount", new Vector3(.2f, .2f, 0f),
                     "time", 1f));
             }
