@@ -119,13 +119,7 @@ namespace Assets.PuzzleEd.Scripts.Regular.Managers
                 dragComponent.RestorePosition = PuzzlePlacements[i].gameObject.transform.position;
             }
 
-            StartCoroutine(PlayMoveToSound(2f));
-        }
-
-        public IEnumerator PlayMoveToSound(float seconds)
-        {
-            yield return new WaitForSeconds(seconds);
-            BaseSoundController.Instance.PlaySoundByIndex(SoundStruct.OnMoveTo, Vector3.zero);
+            StartCoroutine(PuzzleSoundController.Instance.PlaySoundByIndex(SoundStruct.OnMoveTo, Vector3.zero, 2f));
         }
 
         public void PuzzleFinished()
@@ -156,10 +150,13 @@ namespace Assets.PuzzleEd.Scripts.Regular.Managers
                                                                       "delay", 3f,
                                                                       "oncomplete", "LoadLetters",
                                                                       "oncompletetarget", GameController.Instance.gameObject));
+
+            StartCoroutine(PuzzleSoundController.PlayAnimalSound(PuzzleName, !GameController.Instance.IsSpanish, 3f));
         }
 
         private void BubblePuzzlePieces()
         {
+            PuzzleSoundController.Instance.PlaySoundByIndex(SoundStruct.OnBubblePuzzle, Vector3.zero);
             for (int i = 0; i < PuzzlePieces.Count; i++)
             {
                 iTween.PunchScale(PuzzlePieces[i].gameObject, iTween.Hash("amount", new Vector3(.2f, .2f, 0f),
@@ -184,6 +181,8 @@ namespace Assets.PuzzleEd.Scripts.Regular.Managers
                 iTween.PunchScale(letterPiece.gameObject, iTween.Hash("amount", new Vector3(.2f, .2f, 0f),
                     "time", 1f));
 
+                PuzzleSoundController.PlayLetterSound(letterPiece.Character.ToUpper());
+
                 yield return new WaitForSeconds(1.1f);
             }
 
@@ -192,6 +191,8 @@ namespace Assets.PuzzleEd.Scripts.Regular.Managers
                 iTween.PunchScale(letterPiece.gameObject, iTween.Hash("amount", new Vector3(.2f, .2f, 0f),
                     "time", 1f));
             }
+
+            PuzzleSoundController.PlayAnimalSound(PuzzleName, !GameController.Instance.IsSpanish);
 
             StartCoroutine(MoveLettersToPlacements());
         }

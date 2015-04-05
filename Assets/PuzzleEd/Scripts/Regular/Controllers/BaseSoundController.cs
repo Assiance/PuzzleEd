@@ -52,5 +52,11 @@ namespace Assets.PuzzleEd.Scripts.Regular.Controllers
             _tempSoundObject = _soundObjectList[indexNumber];
             _tempSoundObject.PlaySound(position);
         }
+
+        public IEnumerator PlaySoundByIndex(int soundIndex, Vector3 position, float seconds)
+        {
+            yield return new WaitForSeconds(seconds);
+            PlaySoundByIndex(soundIndex, position);
+        }
     }
 }

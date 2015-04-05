@@ -16,13 +16,12 @@ namespace Assets.PuzzleEd.Scripts.Regular.Scene
         //if we dont do this we actually have multiple instance of them.
         static bool MenuOn;
         static PanelActive  panelActive;
+
         public void PlayGame()
         {
             PlayerPrefs.SetInt(GamePrefsName + "_Language", Convert.ToInt32(IsSpanish.isOn));
             Application.LoadLevel("Level1");
         }
-
-    
 
         private void ToggleMenu(PanelActive menuactive)
         {
@@ -48,6 +47,7 @@ namespace Assets.PuzzleEd.Scripts.Regular.Scene
             var Menupanel = gameObject.transform.parent.gameObject.transform.parent.gameObject.transform.parent.GetComponent<CanvasGroup>();
             Menupanel.interactable = true;
         }
+
         public void Showcredits()
         {
             var creditpanel = gameObject.transform.parent.gameObject.transform.Find("creditsPanel");
@@ -58,10 +58,12 @@ namespace Assets.PuzzleEd.Scripts.Regular.Scene
             creditpanel.gameObject.GetComponent<CanvasGroup>().blocksRaycasts = true;
             
         }
+
         public void OpenUrl()
         {
             Application.OpenURL("http://everflux.com/");
         }
+
         public void DisplayMenu()
         {
             if(panelActive==null)
@@ -73,7 +75,6 @@ namespace Assets.PuzzleEd.Scripts.Regular.Scene
             {
                 ToggleMenu(panelActive); 
             }
-      
         }
     }
 }
