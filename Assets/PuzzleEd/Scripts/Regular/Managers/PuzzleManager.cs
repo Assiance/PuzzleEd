@@ -6,7 +6,9 @@ using System.Security.Cryptography.X509Certificates;
 using Assets.PuzzleEd.Scripts.Regular.Actions;
 using Assets.PuzzleEd.Scripts.Regular.Controllers;
 using Assets.PuzzleEd.Scripts.Regular.Entities;
+using Assets.PuzzleEd.Scripts.Regular.Enums;
 using Assets.PuzzleEd.Scripts.Regular.General;
+using Assets.PuzzleEd.Scripts.Regular.Helpers;
 using UnityEngine;
 
 namespace Assets.PuzzleEd.Scripts.Regular.Managers
@@ -101,7 +103,7 @@ namespace Assets.PuzzleEd.Scripts.Regular.Managers
         {
             foreach (var piece in PuzzlePieces)
             {
-                iTween.MoveBy(piece.gameObject, new Vector3(0f, -8.84f), 2f);
+                iTween.MoveBy(piece.gameObject, new Vector3(0f, -9.44f), 2f);
             }
 
             var rnd = new System.Random();
@@ -116,6 +118,14 @@ namespace Assets.PuzzleEd.Scripts.Regular.Managers
                 var dragComponent = randomPieces[i].GetComponent<Drag>();
                 dragComponent.RestorePosition = PuzzlePlacements[i].gameObject.transform.position;
             }
+
+            StartCoroutine(PlayMoveToSound(2f));
+        }
+
+        public IEnumerator PlayMoveToSound(float seconds)
+        {
+            yield return new WaitForSeconds(seconds);
+            BaseSoundController.Instance.PlaySoundByIndex(SoundStruct.OnMoveTo, Vector3.zero);
         }
 
         public void PuzzleFinished()

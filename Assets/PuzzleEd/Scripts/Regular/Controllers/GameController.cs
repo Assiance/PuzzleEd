@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using Assets.PuzzleEd.Scripts.Regular.Framework;
 using Assets.PuzzleEd.Scripts.Regular.General;
 using Assets.PuzzleEd.Scripts.Regular.Managers;
@@ -49,6 +50,12 @@ namespace Assets.PuzzleEd.Scripts.Regular.Controllers
 
         void Start()
         {
+            StartCoroutine(LoadGame());
+        }
+
+        IEnumerator LoadGame()
+        {
+            yield return new WaitForSeconds(2f);
             StartGame();
         }
 

@@ -9,5 +9,6 @@ namespace Assets.PuzzleEd.Scripts.Regular.Enums
     {
         public static int OnPuzzleDragStart = 0;
         public static int OnPuzzleDropSuccess = 1;
+        public static int OnMoveTo = 2;
     }
 }
