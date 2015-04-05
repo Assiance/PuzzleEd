@@ -9,12 +9,14 @@ namespace Assets.PuzzleEd.Scripts.Regular.Actions
         public string DragId;
         public bool RestorePositionOnMissDrop;
         public float RestoreSpeed = 1.3f;
-        public Vector3 RestorePosition { get; set; }
+        public Vector3 RestorePosition;
         public bool Draggable = true;
+        public bool BeingTouched = false;
+        public bool Dropped = false;
         public GameObject CollidingDropArea { get; set; }
         private Vector2 _tempPosition;
 
-        public void Start()
+        void Awake()
         {
             RestorePosition = gameObject.transform.position;   
         }
@@ -63,23 +65,20 @@ namespace Assets.PuzzleEd.Scripts.Regular.Actions
         {
             if (CollidingDropArea != null)
             {
-                Drop dropComponent = CollidingDropArea.gameObject.GetComponent<Drop>();
-                if (this.DragId == dropComponent.DropId)
-                {
-                    iTween.MoveTo(gameObject, iTween.Hash("x", CollidingDropArea.gameObject.transform.position.x, "Y", CollidingDropArea.gameObject.transform.position.y, "time", RestoreSpeed));
-                    this.Draggable = false;
-                }
-                else
-                {
-                    iTween.MoveTo(gameObject, iTween.Hash("x", RestorePosition.x, "Y", RestorePosition.y, "time", RestoreSpeed));
-                }
+                iTween.MoveTo(gameObject, iTween.Hash("x", CollidingDropArea.gameObject.transform.position.x, "Y", CollidingDropArea.gameObject.transform.position.y, "time", RestoreSpeed));
             }
             else
             {
-                iTween.MoveTo(gameObject, iTween.Hash("x", RestorePosition.x, "Y", RestorePosition.y, "time", RestoreSpeed));
+                RestoreToInitialPosition();
             }
+
             Debug.Log("Stop");
         }
         #endregion
+
+        public void RestoreToInitialPosition()
+        {
+            iTween.MoveTo(gameObject, iTween.Hash("x", RestorePosition.x, "Y", RestorePosition.y, "time", RestoreSpeed));
+        }
     }
 }

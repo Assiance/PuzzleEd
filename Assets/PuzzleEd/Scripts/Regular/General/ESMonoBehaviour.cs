@@ -6,7 +6,7 @@ namespace Assets.PuzzleEd.Scripts.Regular.General
     {
         private Transform _cachedTransform;
 
-        protected Transform CachedTransform
+        public Transform CachedTransform
         {
             get
             {
