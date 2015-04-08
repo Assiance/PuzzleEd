@@ -23,6 +23,11 @@ namespace Assets.PuzzleEd.Scripts.Regular.Scene
             Application.LoadLevel("Level1");
         }
 
+        public void MainMenu()
+        {
+            Application.LoadLevel("MainMenuScene");
+        }
+
         private void ToggleMenu(PanelActive menuactive)
         {
             // display menu
@@ -61,7 +66,7 @@ namespace Assets.PuzzleEd.Scripts.Regular.Scene
 
         public void OpenUrl()
         {
-            Application.OpenURL("http://everflux.com/");
+            Application.OpenURL("http://everfluxstudios.com/");
         }
 
         public void DisplayMenu()
