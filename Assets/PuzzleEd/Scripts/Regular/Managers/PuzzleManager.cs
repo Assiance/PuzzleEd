@@ -167,6 +167,17 @@ namespace Assets.PuzzleEd.Scripts.Regular.Managers
             }
         }
 
+        private void LoadLetters()
+        {
+            //Say animal name
+            //Make animal noise
+            StartCoroutine(PlaceLettersAnimation());
+
+            //One letter piece comes to bottom of screen at a time.
+            //Says Letter when it comes down.
+            //Move letters in a random order to the top of screen.
+        }
+
         private IEnumerator PlaceLettersAnimation()
         {
             var tempList = new List<LetterDrop>();
@@ -197,16 +208,6 @@ namespace Assets.PuzzleEd.Scripts.Regular.Managers
             StartCoroutine(MoveLettersToPlacements());
         }
 
-        private void LoadLetters()
-        {
-            //Say animal name
-            //Make animal noise
-            StartCoroutine(PlaceLettersAnimation());
-
-            //One letter piece comes to bottom of screen at a time.
-            //Says Letter when it comes down.
-            //Move letters in a random order to the top of screen.
-        }
 
         private IEnumerator MoveLettersToPlacements()
         {
@@ -218,6 +219,8 @@ namespace Assets.PuzzleEd.Scripts.Regular.Managers
                 iTween.MoveTo(randomLetters[i].gameObject, iTween.Hash("position", new Vector3(LetterPlacements[i].transform.position.x, LetterPlacements[i].transform.position.y, 0f),
                                                                       "time", 2f,
                                                                       "delay", 3f));
+
+                randomLetters[i].GetComponent<Drag>().RestorePosition = LetterPlacements[i].transform.position;
             }
 
             yield return new WaitForSeconds(3.5f);
