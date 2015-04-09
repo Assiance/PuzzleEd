@@ -181,7 +181,7 @@ namespace Assets.PuzzleEd.Scripts.Regular.Managers
         private IEnumerator PlaceLettersAnimation()
         {
             var tempList = new List<LetterDrop>();
-            tempList.AddRange(LetterDrops);
+            tempList.AddRange(LetterDrops.Where(x => x.IsEnglish != GameController.Instance.IsSpanish));
 
             foreach (var letterPiece in LetterPieces)
             {
