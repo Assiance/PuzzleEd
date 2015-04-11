@@ -430,6 +430,7 @@ GameObject:
   - 124: {fileID: 165664421}
   - 81: {fileID: 165664420}
   - 114: {fileID: 165664425}
+  - 114: {fileID: 165664426}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -478,7 +479,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5.33333349
+  orthographic size: 4.99779272
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -514,6 +515,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   UnitsForWidth: 16
+--- !u!114 &165664426
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 165664419}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b156f65d799bad24298499a063410478, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fadeOutTexture: {fileID: 2800000, guid: a7fcd896b569b2845b8363cac3d174b6, type: 3}
+  fadeSpeed: .0900000036
 --- !u!1 &226721620
 GameObject:
   m_ObjectHideFlags: 0

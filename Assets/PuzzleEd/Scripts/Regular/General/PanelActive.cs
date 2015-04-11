@@ -18,6 +18,7 @@ namespace Assets.PuzzleEd.Scripts.Regular.General
         {
             var camvasgroup=myPanel.GetComponent<CanvasGroup>();
             camvasgroup.alpha = 0;
+            camvasgroup.interactable = false;
 
         }
 
@@ -25,6 +26,7 @@ namespace Assets.PuzzleEd.Scripts.Regular.General
         {
             var camvasgroup = myPanel.GetComponent<CanvasGroup>();
             camvasgroup.alpha = 1;
+            camvasgroup.interactable = true;
 
         }
     }
