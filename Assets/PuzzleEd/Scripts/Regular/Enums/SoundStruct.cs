@@ -32,5 +32,6 @@ namespace Assets.PuzzleEd.Scripts.Regular.Enums
         public static int SSquirrel = 22;
         public static int Stork = 23;
         public static int SStork = 24;
+        public static int OnDropFailure = 51;
     }
 }
