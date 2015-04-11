@@ -528,7 +528,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fadeOutTexture: {fileID: 2800000, guid: a7fcd896b569b2845b8363cac3d174b6, type: 3}
-  fadeSpeed: .800000012
+  fadeSpeed: .0799999982
 --- !u!1 &171465524
 GameObject:
   m_ObjectHideFlags: 0
@@ -818,7 +818,7 @@ CanvasGroup:
   m_GameObject: {fileID: 225162766}
   m_Enabled: 1
   m_Alpha: 0
-  m_Interactable: 1
+  m_Interactable: 0
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 1
 --- !u!1 &264063602
