@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Assets.PuzzleEd.Scripts.Regular.Controllers;
+using Assets.PuzzleEd.Scripts.Regular.Enums;
 using UnityEngine;
 using Assets.PuzzleEd.Scripts.Regular.General;
 using UnityEngine.UI;
@@ -19,12 +21,14 @@ namespace Assets.PuzzleEd.Scripts.Regular.Scene
 
         public void PlayGame()
         {
+            BaseSoundController.Instance.PlaySoundByIndex(SoundStruct.OnSelectUI, Vector3.zero);
             PlayerPrefs.SetInt(GamePrefsName + "_Language", Convert.ToInt32(IsSpanish.isOn));
             Application.LoadLevel("Level1");
         }
 
         public void MainMenu()
         {
+            BaseSoundController.Instance.PlaySoundByIndex(SoundStruct.OnSelectUI, Vector3.zero);
             Application.LoadLevel("MainMenuScene");
         }
 
@@ -45,6 +49,7 @@ namespace Assets.PuzzleEd.Scripts.Regular.Scene
 
         public void Goback()
         {
+            BaseSoundController.Instance.PlaySoundByIndex(SoundStruct.OnSelectUI, Vector3.zero);
             var canvasgroup = gameObject.transform.parent.gameObject.transform.parent.gameObject.GetComponent<CanvasGroup>();
             canvasgroup.alpha = 0;
             canvasgroup.blocksRaycasts = false;
@@ -66,11 +71,14 @@ namespace Assets.PuzzleEd.Scripts.Regular.Scene
 
         public void OpenUrl()
         {
+            BaseSoundController.Instance.PlaySoundByIndex(SoundStruct.OnSelectUI, Vector3.zero);
             Application.OpenURL("http://everfluxstudios.com/");
         }
 
         public void DisplayMenu()
         {
+            BaseSoundController.Instance.PlaySoundByIndex(SoundStruct.OnSelectUI, Vector3.zero);
+
             if(panelActive==null)
             {
                 panelActive = gameObject.transform.parent.gameObject.GetComponentInChildren<PanelActive>();

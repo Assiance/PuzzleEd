@@ -11,7 +11,7 @@ namespace Assets.PuzzleEd.Scripts.Regular.Enums
         public static int OnPuzzleDropSuccess = 1;
         public static int OnMoveTo = 2;
         public static int OnBubblePuzzle = 3;
-        public static int OnPunchPuzzle = 4;
+        public static int OnSelectUI = 4;
         public static int Fox = 5;
         public static int SFox = 6;
         public static int Buffalo = 7;
