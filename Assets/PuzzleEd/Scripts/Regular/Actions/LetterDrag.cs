@@ -22,7 +22,7 @@ namespace Assets.PuzzleEd.Scripts.Regular.Actions
         {
             base.DragStart();
 
-            BaseSoundController.Instance.PlaySoundByIndex(SoundStruct.OnPuzzleDragStart, Vector3.zero);
+            PuzzleSoundController.PlayLetterSound(letterPiece.Character.ToUpper());
         }
 
         protected override void Dragging(Vector2 newPosition)

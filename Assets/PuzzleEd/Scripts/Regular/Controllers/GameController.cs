@@ -81,7 +81,7 @@ namespace Assets.PuzzleEd.Scripts.Regular.Controllers
         {
             Debug.Log("Level Finished");
             //call fade script
-            float fadeTime = gameObject.GetComponent<FadeInOut>().BeginFade(-1);
+            float fadeTime = FindObjectOfType<FadeInOut>().BeginFade(-1);
 
              new WaitForSeconds(fadeTime);
             _sceneManager.GoToNextLevel();
