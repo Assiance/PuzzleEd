@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -21,14 +22,20 @@ namespace Assets.PuzzleEd.Scripts.Regular.Scene
 
         public void PlayGame()
         {
-            BaseSoundController.Instance.PlaySoundByIndex(SoundStruct.OnSelectUI, Vector3.zero);
+            PuzzleSoundController.Instance.PlaySoundByIndex(SoundStruct.OnSelectUI, Vector3.zero);
             PlayerPrefs.SetInt(GamePrefsName + "_Language", Convert.ToInt32(IsSpanish.isOn));
+            StartCoroutine("LoadLevel");
+        }
+
+        public IEnumerator LoadLevel()
+        {
+            yield return new WaitForSeconds(1.4f);
             Application.LoadLevel("Level1");
         }
 
         public void MainMenu()
         {
-            BaseSoundController.Instance.PlaySoundByIndex(SoundStruct.OnSelectUI, Vector3.zero);
+            PuzzleSoundController.Instance.PlaySoundByIndex(SoundStruct.OnSelectUI, Vector3.zero);
             Application.LoadLevel("MainMenuScene");
         }
 
@@ -49,7 +56,7 @@ namespace Assets.PuzzleEd.Scripts.Regular.Scene
 
         public void Goback()
         {
-            BaseSoundController.Instance.PlaySoundByIndex(SoundStruct.OnSelectUI, Vector3.zero);
+            PuzzleSoundController.Instance.PlaySoundByIndex(SoundStruct.OnSelectUI, Vector3.zero);
             var canvasgroup = gameObject.transform.parent.gameObject.transform.parent.gameObject.GetComponent<CanvasGroup>();
             canvasgroup.alpha = 0;
             canvasgroup.blocksRaycasts = false;
@@ -71,13 +78,13 @@ namespace Assets.PuzzleEd.Scripts.Regular.Scene
 
         public void OpenUrl()
         {
-            BaseSoundController.Instance.PlaySoundByIndex(SoundStruct.OnSelectUI, Vector3.zero);
+            PuzzleSoundController.Instance.PlaySoundByIndex(SoundStruct.OnSelectUI, Vector3.zero);
             Application.OpenURL("http://everfluxstudios.com/");
         }
 
         public void DisplayMenu()
         {
-            BaseSoundController.Instance.PlaySoundByIndex(SoundStruct.OnSelectUI, Vector3.zero);
+            PuzzleSoundController.Instance.PlaySoundByIndex(SoundStruct.OnSelectUI, Vector3.zero);
 
             if(panelActive==null)
             {

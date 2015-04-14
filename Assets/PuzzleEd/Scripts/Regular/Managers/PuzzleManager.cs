@@ -15,7 +15,8 @@ namespace Assets.PuzzleEd.Scripts.Regular.Managers
 {
     public class PuzzleManager : ESMonoBehaviour
     {
-        public string PuzzleName;
+        public string EnglishPuzzleName;
+        public string SpanishPuzzleName;
 
         [HideInInspector]
         public List<PuzzlePiece> PuzzlePieces { get; set; }
@@ -28,6 +29,8 @@ namespace Assets.PuzzleEd.Scripts.Regular.Managers
         public List<GameObject> LetterPlacements { get; set; }
         public List<LetterDrop> LetterDrops { get; set; }
         public GameObject CompletedPuzzle { get; set; }
+
+        private string _puzzleName;
 
         private IEnumerator CheckIfPuzzlePiecesFinished()
         {
@@ -56,6 +59,8 @@ namespace Assets.PuzzleEd.Scripts.Regular.Managers
 
         public void InitiatePuzzle()
         {
+            _puzzleName = GameController.Instance.IsSpanish ? SpanishPuzzleName : EnglishPuzzleName;
+
             PuzzlePieces = FindObjectsOfType<PuzzlePiece>().ToList();
             PuzzleDrops = FindObjectsOfType<PuzzleDrop>().ToList();
             LetterPieces = FindObjectsOfType<LetterPiece>().Where(x => x.IsEnglish != GameController.Instance.IsSpanish).ToList();
@@ -63,7 +68,7 @@ namespace Assets.PuzzleEd.Scripts.Regular.Managers
             var tempList = new List<LetterPiece>();
 
             //Sort By PuzzleName
-            foreach (var letter in PuzzleName)
+            foreach (var letter in _puzzleName)
             {
                 var item = LetterPieces.First(x => x.Character.ToLower() == letter.ToString().ToLower());
 
@@ -151,7 +156,7 @@ namespace Assets.PuzzleEd.Scripts.Regular.Managers
                                                                       "oncomplete", "LoadLetters",
                                                                       "oncompletetarget", GameController.Instance.gameObject));
 
-            StartCoroutine(PuzzleSoundController.PlayAnimalSound(PuzzleName, !GameController.Instance.IsSpanish, 3f));
+            StartCoroutine(PuzzleSoundController.PlayAnimalSound(EnglishPuzzleName, !GameController.Instance.IsSpanish, 3f));
         }
 
         private void BubblePuzzlePieces()
@@ -171,6 +176,8 @@ namespace Assets.PuzzleEd.Scripts.Regular.Managers
         {
             //Say animal name
             //Make animal noise
+            LetterDrops.ForEach(x => x.GetComponent<SpriteRenderer>().sortingOrder = 0);
+
             StartCoroutine(PlaceLettersAnimation());
 
             //One letter piece comes to bottom of screen at a time.
@@ -203,7 +210,7 @@ namespace Assets.PuzzleEd.Scripts.Regular.Managers
                     "time", 1f));
             }
 
-            PuzzleSoundController.PlayAnimalSound(PuzzleName, !GameController.Instance.IsSpanish);
+            PuzzleSoundController.PlayAnimalSound(EnglishPuzzleName, !GameController.Instance.IsSpanish);
 
             StartCoroutine(MoveLettersToPlacements());
         }
