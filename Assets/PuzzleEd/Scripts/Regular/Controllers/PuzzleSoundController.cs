@@ -23,16 +23,16 @@ namespace Assets.PuzzleEd.Scripts.Regular.Controllers
             return Instance.PlaySoundByIndex(animalIndex, Vector3.zero, seconds);
         }
 
-        public static void PlayLetterSound(string letter)
+        public static void PlayLetterSound(string letter, bool isEnglish)
         {
-            int animalIndex = GetLetterSoundIndex(letter);
+            int animalIndex = GetLetterSoundIndex(letter, isEnglish);
 
             Instance.PlaySoundByIndex(animalIndex, Vector3.zero);
         }
 
-        public static IEnumerator PlayLetterSound(string letter, float seconds)
+        public static IEnumerator PlayLetterSound(string letter, bool isEnglish, float seconds)
         {
-            int animalIndex = GetLetterSoundIndex(letter);
+            int animalIndex = GetLetterSoundIndex(letter, isEnglish);
 
             return Instance.PlaySoundByIndex(animalIndex, Vector3.zero, seconds);
         }
@@ -81,89 +81,89 @@ namespace Assets.PuzzleEd.Scripts.Regular.Controllers
             return animalIndex;
         }
 
-        private static int GetLetterSoundIndex(string letter)
+        private static int GetLetterSoundIndex(string letter, bool isEnglish)
         {
             int letterIndex = 0;
 
             switch (letter)
             {
                 case "A":
-                    letterIndex = 25;
+                    letterIndex = isEnglish ? 25 : 52;
                     break;
                 case "B":
-                    letterIndex = 26;
+                    letterIndex = isEnglish ? 26 : 53;
                     break;
                 case "C":
-                    letterIndex = 27;
+                    letterIndex = isEnglish ? 27 : 54;
                     break;
                 case "D":
-                    letterIndex =  28;
+                    letterIndex = isEnglish ? 28 : 55;
                     break;
                 case "E":
-                    letterIndex =  29;
+                    letterIndex = isEnglish ? 29 : 56;
                     break;
                 case "F":
-                    letterIndex =  30;
+                    letterIndex = isEnglish ? 30 : 57;
                     break;
                 case "G":
-                    letterIndex =  31;
+                    letterIndex = isEnglish ? 31 : 58;
                     break;
                 case "H":
-                    letterIndex =  32;
+                    letterIndex = isEnglish ? 32 : 59;
                     break;
                 case "I":
-                    letterIndex =  33;
+                    letterIndex = isEnglish ? 33 : 60;
                     break;
                 case "J":
-                    letterIndex =  34;
+                    letterIndex = isEnglish ? 34 : 61;
                     break;
                 case "K":
-                    letterIndex = 35;
+                    letterIndex = isEnglish ? 35 : 62;
                     break;
                 case "L":
-                    letterIndex = 36;
+                    letterIndex = isEnglish ? 36 : 63;
                     break;
                 case "M":
-                    letterIndex = 37;
+                    letterIndex = isEnglish ? 37 : 64;
                     break;
                 case "N":
-                    letterIndex = 38;
+                    letterIndex = isEnglish ? 38 : 65;
                     break;
                 case "O":
-                    letterIndex = 39;
+                    letterIndex = isEnglish ? 39 : 66;
                     break;
                 case "P":
-                    letterIndex = 40;
+                    letterIndex = isEnglish ? 40 : 67;
                     break;
                 case "Q":
-                    letterIndex = 41;
+                    letterIndex = isEnglish ? 41 : 68;
                     break;
                 case "R":
-                    letterIndex = 42;
+                    letterIndex = isEnglish ? 42 : 69;
                     break;
                 case "S":
-                    letterIndex = 43;
+                    letterIndex = isEnglish ? 43 : 70;
                     break;
                 case "T":
-                    letterIndex = 44;
+                    letterIndex = isEnglish ? 44 : 71;
                     break;
                 case "U":
-                    letterIndex = 45;
+                    letterIndex = isEnglish ? 45 : 72;
                     break;
                 case "V":
-                    letterIndex = 46;
+                    letterIndex = isEnglish ? 46 : 73;
                     break;
                 case "W":
-                    letterIndex = 47;
+                    letterIndex = isEnglish ? 47 : 74;
                     break;
                 case "X":
-                    letterIndex = 48;
+                    letterIndex = isEnglish ? 48 : 75;
                     break;
                 case "Y":
-                    letterIndex = 49;
+                    letterIndex = isEnglish ? 49 : 76;
                     break;
                 case "Z":
-                    letterIndex = 50;
+                    letterIndex = isEnglish ? 50 : 77;
                     break;
                 default:
                     letterIndex = 0;

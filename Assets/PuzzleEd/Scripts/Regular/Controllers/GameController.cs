@@ -85,6 +85,9 @@ namespace Assets.PuzzleEd.Scripts.Regular.Controllers
 
              new WaitForSeconds(fadeTime);
             _sceneManager.GoToNextLevel();
+
+            new WaitForSeconds(2f);
+            _puzzleManager.InitiatePuzzle();
         }
     }
 }

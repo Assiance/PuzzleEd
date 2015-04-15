@@ -1,7 +1,14 @@
 fileFormatVersion: 2
 guid: 600fefade72e8c347a4bee787d42edab
+timeCreated: 1428982595
+licenseType: Free
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: pieces-horse_0
+    21300002: pieces-horse_1
+    21300004: pieces-horse_2
+    21300006: pieces-horse_3
+    21300008: pieces-horse_4
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -20,18 +27,22 @@ TextureImporter:
   isReadable: 0
   grayScaleToAlpha: 0
   generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 8
+  cubemapConvolutionExponent: 1.5
   seamlessCubemap: 0
   textureFormat: -1
   maxTextureSize: 1024
   textureSettings:
     filterMode: -1
-    aniso: -1
+    aniso: 16
     mipBias: -1
-    wrapMode: -1
+    wrapMode: 1
   nPOTScale: 0
   lightmap: 0
+  rGBM: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -42,6 +53,58 @@ TextureImporter:
   textureType: 8
   buildTargetSettings: []
   spriteSheet:
-    sprites: []
+    sprites:
+    - name: pieces-horse_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 5149
+        width: 2048
+        height: 2410
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: pieces-horse_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3909
+        width: 1031
+        height: 1166
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: pieces-horse_2
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 2646
+        width: 865
+        height: 1167
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: pieces-horse_3
+      rect:
+        serializedVersion: 2
+        x: 329
+        y: 1650
+        width: 1035
+        height: 908
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: pieces-horse_4
+      rect:
+        serializedVersion: 2
+        x: 965
+        y: 85
+        width: 1083
+        height: 1425
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 
+  assetBundleName: 
+  assetBundleVariant: 

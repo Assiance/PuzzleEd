@@ -199,7 +199,7 @@ namespace Assets.PuzzleEd.Scripts.Regular.Managers
                 iTween.PunchScale(letterPiece.gameObject, iTween.Hash("amount", new Vector3(.2f, .2f, 0f),
                     "time", 1f));
 
-                PuzzleSoundController.PlayLetterSound(letterPiece.Character.ToUpper());
+                PuzzleSoundController.PlayLetterSound(letterPiece.Character.ToUpper(), !GameController.Instance.IsSpanish);
 
                 yield return new WaitForSeconds(1.1f);
             }

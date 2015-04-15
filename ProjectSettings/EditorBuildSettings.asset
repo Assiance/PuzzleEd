@@ -5,8 +5,6 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: Assets/UnityRemote/Remote.unity
   - enabled: 1
     path: Assets/PuzzleEd/Scenes/SplashScene.unity
   - enabled: 1
@@ -15,3 +13,19 @@ EditorBuildSettings:
     path: Assets/PuzzleEd/Scenes/Level1.unity
   - enabled: 1
     path: Assets/PuzzleEd/Scenes/Level2.unity
+  - enabled: 1
+    path: Assets/PuzzleEd/Scenes/Level3.unity
+  - enabled: 1
+    path: Assets/PuzzleEd/Scenes/Level4.unity
+  - enabled: 1
+    path: Assets/PuzzleEd/Scenes/Level5.unity
+  - enabled: 1
+    path: Assets/PuzzleEd/Scenes/Level6.unity
+  - enabled: 1
+    path: Assets/PuzzleEd/Scenes/Level7.unity
+  - enabled: 1
+    path: Assets/PuzzleEd/Scenes/Level8.unity
+  - enabled: 1
+    path: Assets/PuzzleEd/Scenes/Level9.unity
+  - enabled: 1
+    path: Assets/PuzzleEd/Scenes/Level10.unity
