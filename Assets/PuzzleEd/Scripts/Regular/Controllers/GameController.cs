@@ -43,7 +43,7 @@ namespace Assets.PuzzleEd.Scripts.Regular.Controllers
         {
             IsSpanish = Convert.ToBoolean(PlayerPrefs.GetInt(GamePrefsName + "_Language"));
             _sceneManager = FindObjectOfType<SceneManager>();
-            _sceneManager.LevelNames = new string[2] { "Level1", "Level2" };
+            _sceneManager.LevelNames = new string[10] { "Level1", "Level2", "Level3", "Level4", "Level5", "Level6", "Level7", "Level8", "Level9", "Level10" };
 
             _puzzleManager = FindObjectOfType<PuzzleManager>();
         }
@@ -85,9 +85,6 @@ namespace Assets.PuzzleEd.Scripts.Regular.Controllers
 
              new WaitForSeconds(fadeTime);
             _sceneManager.GoToNextLevel();
-
-            new WaitForSeconds(2f);
-            _puzzleManager.InitiatePuzzle();
         }
     }
 }
