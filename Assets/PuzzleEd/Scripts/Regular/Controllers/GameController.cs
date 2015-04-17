@@ -11,6 +11,8 @@ namespace Assets.PuzzleEd.Scripts.Regular.Controllers
     {
         private SceneManager _sceneManager;
         private PuzzleManager _puzzleManager;
+
+        public PuzzleManager PuzzleManager { get { return _puzzleManager; } }
         public bool IsSpanish = false;
         public string GamePrefsName = "DefaultGame";
 
@@ -85,6 +87,14 @@ namespace Assets.PuzzleEd.Scripts.Regular.Controllers
 
              new WaitForSeconds(fadeTime);
             _sceneManager.GoToNextLevel();
+
+            StartCoroutine("GetPuzzleManager");
+        }
+
+        public IEnumerator GetPuzzleManager()
+        {
+            yield return new WaitForSeconds(3f);
+            _puzzleManager = FindObjectOfType<PuzzleManager>();
         }
     }
 }

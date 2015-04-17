@@ -137,6 +137,19 @@ namespace Assets.PuzzleEd.Scripts.Regular.Managers
             BubblePuzzlePieces();
         }
 
+        private void BubblePuzzlePieces()
+        {
+            PuzzleSoundController.Instance.PlaySoundByIndex(SoundStruct.OnBubblePuzzle, Vector3.zero);
+            for (int i = 0; i < PuzzlePieces.Count; i++)
+            {
+                iTween.PunchScale(PuzzlePieces[i].gameObject, iTween.Hash("amount", new Vector3(.2f, .2f, 0f),
+                    "time", 2f,
+                    "delay", (i / 8f),
+                    "oncomplete", "MovePuzzleToCenter",
+                    "oncompletetarget", GameController.Instance.PuzzleManager.gameObject));
+            }
+        }
+
         private void MovePuzzleToCenter()
         {
             PuzzlePieces.ForEach(x => x.gameObject.SetActive(false));
@@ -154,22 +167,9 @@ namespace Assets.PuzzleEd.Scripts.Regular.Managers
                                                                       "time", 1f,
                                                                       "delay", 3f,
                                                                       "oncomplete", "LoadLetters",
-                                                                      "oncompletetarget", GameController.Instance.gameObject));
+                                                                      "oncompletetarget", GameController.Instance.PuzzleManager.gameObject));
 
             StartCoroutine(PuzzleSoundController.PlayAnimalSound(EnglishPuzzleName, !GameController.Instance.IsSpanish, 3f));
-        }
-
-        private void BubblePuzzlePieces()
-        {
-            PuzzleSoundController.Instance.PlaySoundByIndex(SoundStruct.OnBubblePuzzle, Vector3.zero);
-            for (int i = 0; i < PuzzlePieces.Count; i++)
-            {
-                iTween.PunchScale(PuzzlePieces[i].gameObject, iTween.Hash("amount", new Vector3(.2f, .2f, 0f),
-                    "time", 2f,
-                    "delay", (i/8f),
-                    "oncomplete", "MovePuzzleToCenter",
-                    "oncompletetarget", GameController.Instance.gameObject));
-            }
         }
 
         private void LoadLetters()

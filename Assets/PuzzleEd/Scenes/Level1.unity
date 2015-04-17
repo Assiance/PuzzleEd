@@ -480,7 +480,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5.00634241
+  orthographic size: 5
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -3391,6 +3391,47 @@ MeshRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
+--- !u!1 &1259744389
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1259744391}
+  - 114: {fileID: 1259744390}
+  m_Layer: 0
+  m_Name: Puzzle Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1259744390
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1259744389}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d57cacaff61e0749a1a6c870b782ad7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EnglishPuzzleName: Cow
+  SpanishPuzzleName: Vaca
+--- !u!4 &1259744391
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1259744389}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 135.499985, y: 84.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
 --- !u!1 &1260998454
 GameObject:
   m_ObjectHideFlags: 0
@@ -3662,7 +3703,6 @@ GameObject:
   - 4: {fileID: 1550912765}
   - 114: {fileID: 1550912764}
   - 114: {fileID: 1550912766}
-  - 114: {fileID: 1550912767}
   m_Layer: 0
   m_Name: Game Controller
   m_TagString: Untagged
@@ -3708,19 +3748,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LevelNames: []
   GameLevelNum: 1
---- !u!114 &1550912767
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1550912763}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8d57cacaff61e0749a1a6c870b782ad7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  EnglishPuzzleName: Cow
-  SpanishPuzzleName: Vaca
 --- !u!1 &1616183977
 GameObject:
   m_ObjectHideFlags: 0
