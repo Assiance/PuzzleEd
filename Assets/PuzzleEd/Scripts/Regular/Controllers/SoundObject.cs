@@ -10,10 +10,11 @@ namespace Assets.PuzzleEd.Scripts.Regular.Controllers
         public AudioClip Clip;
         public string Name;
 
-        public SoundObject(AudioClip clip, string name, float volume)
+        public SoundObject(AudioClip clip, string name, float volume, GameObject parentObject)
         {
             SourceGameObject = new GameObject("AudioSource_" + name);
             SourceTransform = SourceGameObject.transform;
+            SourceTransform.parent = parentObject.transform;
             Source = SourceGameObject.AddComponent<AudioSource>();
             Source.name = "AudioSource_" + name;
             Source.playOnAwake = false;

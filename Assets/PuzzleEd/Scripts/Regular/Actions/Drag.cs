@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using Assets.PuzzleEd.Scripts.Regular.Controllers;
 using Assets.PuzzleEd.Scripts.Regular.Enums;
 using Assets.PuzzleEd.Scripts.Regular.General;
@@ -20,7 +21,7 @@ namespace Assets.PuzzleEd.Scripts.Regular.Actions
 
         void Awake()
         {
-            RestorePosition = gameObject.transform.position;   
+            RestorePosition = gameObject.transform.position;
         }
 
         #region Start Drag

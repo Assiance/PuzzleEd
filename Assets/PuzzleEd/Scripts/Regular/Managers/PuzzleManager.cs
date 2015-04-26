@@ -239,12 +239,31 @@ namespace Assets.PuzzleEd.Scripts.Regular.Managers
         public void LettersFinished()
         {
             StopCoroutine(CheckIfLetterPiecesFinished());
-            //Spell Animal Name
+    
+            StartCoroutine(FinishingLevel());
+        }
+
+        public IEnumerator FinishingLevel()
+        {
+            yield return new WaitForSeconds(0.5f);
+
+            //Punch all Letters
+            foreach (var letterPiece in LetterPieces)
+            {
+                iTween.PunchScale(letterPiece.gameObject, iTween.Hash("amount", new Vector3(.2f, .2f, 0f),
+                    "time", 1f));
+            }
+
+            //Punch completed puzzle
+            iTween.PunchScale(CompletedPuzzle, iTween.Hash("amount", new Vector3(.1f, .1f, 0f),
+                                                                      "time", 1f));
+
             //Say Animal Name
-            //Make Animal Noise
-            //Go to next level
+            PuzzleSoundController.PlayAnimalSound(EnglishPuzzleName, !GameController.Instance.IsSpanish);
+
+            yield return new WaitForSeconds(2f);
+
             GameController.Instance.LevelFinished();
-            
         }
 
 
