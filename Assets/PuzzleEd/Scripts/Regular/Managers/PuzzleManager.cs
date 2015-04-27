@@ -234,6 +234,15 @@ namespace Assets.PuzzleEd.Scripts.Regular.Managers
 
             LetterDrops.Where(x => x.IsEnglish != GameController.Instance.IsSpanish).ToList().
                 ForEach(x => x.gameObject.SetActive(true));
+
+            LetterDrops.Where(x => x.IsEnglish != GameController.Instance.IsSpanish).ToList()
+                .ForEach(x => x.GetComponent<BoxCollider2D>().enabled = false);
+
+            yield return new WaitForSeconds(0.5f);
+
+            var firstLetter = LetterDrops.First(x => x.LetterOrder == 1);
+            firstLetter.GetComponent<SpriteRenderer>().color = new Color(255, 255, 255, 255);
+            firstLetter.GetComponent<BoxCollider2D>().enabled = true;
         }
 
         public void LettersFinished()

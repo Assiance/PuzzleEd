@@ -249,6 +249,7 @@ MonoBehaviour:
   DropId: C
   EscapeOndrop: 1
   IsEnglish: 1
+  LetterOrder: 3
 --- !u!61 &62632365
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -481,7 +482,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 5.00668144
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -1204,6 +1205,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 598184396}
+  - 114: {fileID: 598184397}
   m_Layer: 0
   m_Name: Drop Spanish
   m_TagString: Untagged
@@ -1227,6 +1229,17 @@ Transform:
   - {fileID: 1783816501}
   m_Father: {fileID: 1260998455}
   m_RootOrder: 3
+--- !u!114 &598184397
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 598184395}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07b42cc3e5ca6314b9dc8192eb5ca866, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &688012934
 GameObject:
   m_ObjectHideFlags: 0
@@ -1819,6 +1832,7 @@ MonoBehaviour:
   DropId: D
   EscapeOndrop: 1
   IsEnglish: 1
+  LetterOrder: 1
 --- !u!61 &845318012
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1866,6 +1880,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 887719350}
+  - 114: {fileID: 887719351}
   m_Layer: 0
   m_Name: Drop English
   m_TagString: Untagged
@@ -1889,6 +1904,17 @@ Transform:
   - {fileID: 1299089761}
   m_Father: {fileID: 1260998455}
   m_RootOrder: 2
+--- !u!114 &887719351
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 887719349}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07b42cc3e5ca6314b9dc8192eb5ca866, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &916745359
 GameObject:
   m_ObjectHideFlags: 0
@@ -2144,6 +2170,7 @@ MonoBehaviour:
   DropId: P
   EscapeOndrop: 1
   IsEnglish: 0
+  LetterOrder: 1
 --- !u!61 &1073052416
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3574,6 +3601,7 @@ MonoBehaviour:
   DropId: A
   EscapeOndrop: 1
   IsEnglish: 0
+  LetterOrder: 2
 --- !u!61 &1229952748
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3845,6 +3873,7 @@ MonoBehaviour:
   DropId: K
   EscapeOndrop: 1
   IsEnglish: 1
+  LetterOrder: 4
 --- !u!61 &1299089763
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4580,6 +4609,7 @@ MonoBehaviour:
   DropId: O
   EscapeOndrop: 1
   IsEnglish: 0
+  LetterOrder: 4
 --- !u!1 &1795328063
 GameObject:
   m_ObjectHideFlags: 0
@@ -4803,6 +4833,7 @@ MonoBehaviour:
   DropId: U
   EscapeOndrop: 1
   IsEnglish: 1
+  LetterOrder: 2
 --- !u!1 &1840340833
 GameObject:
   m_ObjectHideFlags: 0
@@ -8665,6 +8696,7 @@ MonoBehaviour:
   DropId: T
   EscapeOndrop: 1
   IsEnglish: 0
+  LetterOrder: 3
 --- !u!1 &1975019307
 GameObject:
   m_ObjectHideFlags: 0

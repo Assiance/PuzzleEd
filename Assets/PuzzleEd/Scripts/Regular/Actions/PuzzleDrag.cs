@@ -24,6 +24,7 @@ namespace Assets.PuzzleEd.Scripts.Regular.Actions
         {
             base.DragStart();
 
+            //Draw in front of other objects on drag
             if (_spriteRenderer != null)
                 _spriteRenderer.sortingOrder = 5;
 
