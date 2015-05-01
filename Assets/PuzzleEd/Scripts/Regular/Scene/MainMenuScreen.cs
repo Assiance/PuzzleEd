@@ -35,6 +35,8 @@ namespace Assets.PuzzleEd.Scripts.Regular.Scene
 
         public void MainMenu()
         {
+            Destroy(GameController.Instance);
+
             PuzzleSoundController.Instance.PlaySoundByIndex(SoundStruct.OnSelectUI, Vector3.zero);
             Application.LoadLevel("MainMenuScene");
         }
