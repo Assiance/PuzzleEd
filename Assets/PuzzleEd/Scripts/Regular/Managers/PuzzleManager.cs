@@ -187,8 +187,10 @@ namespace Assets.PuzzleEd.Scripts.Regular.Managers
 
         private IEnumerator PlaceLettersAnimation()
         {
+            LetterDrops = LetterDrops.Where(x => x.IsEnglish != GameController.Instance.IsSpanish).ToList();
+
             var tempList = new List<LetterDrop>();
-            tempList.AddRange(LetterDrops.Where(x => x.IsEnglish != GameController.Instance.IsSpanish));
+            tempList.AddRange(LetterDrops);
 
             foreach (var letterPiece in LetterPieces)
             {
@@ -232,11 +234,8 @@ namespace Assets.PuzzleEd.Scripts.Regular.Managers
 
             yield return new WaitForSeconds(3.5f);
 
-            LetterDrops.Where(x => x.IsEnglish != GameController.Instance.IsSpanish).ToList().
-                ForEach(x => x.gameObject.SetActive(true));
-
-            LetterDrops.Where(x => x.IsEnglish != GameController.Instance.IsSpanish).ToList()
-                .ForEach(x => x.GetComponent<BoxCollider2D>().enabled = false);
+            LetterDrops.ForEach(x => x.gameObject.SetActive(true));
+            LetterDrops.ForEach(x => x.GetComponent<BoxCollider2D>().enabled = false);
 
             yield return new WaitForSeconds(0.5f);
 
