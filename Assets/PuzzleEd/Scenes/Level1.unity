@@ -482,7 +482,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5.00448418
+  orthographic size: 5.02040815
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -3330,7 +3330,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_Offset: {x: .25, y: .5}
   serializedVersion: 2
-  m_Size: {x: 4, y: 5}
+  m_Size: {x: 2, y: 2}
 --- !u!212 &1175223923
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3559,7 +3559,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_Offset: {x: .600000024, y: .5}
   serializedVersion: 2
-  m_Size: {x: 3, y: 2.5}
+  m_Size: {x: 1.5, y: 1.5}
 --- !u!212 &1267226848
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3895,7 +3895,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_Offset: {x: -1.35000002, y: 0}
   serializedVersion: 2
-  m_Size: {x: 2.5, y: 5}
+  m_Size: {x: 2, y: 2}
 --- !u!212 &1674634257
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4261,7 +4261,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_Offset: {x: -1, y: 0}
   serializedVersion: 2
-  m_Size: {x: 4, y: 4}
+  m_Size: {x: 2, y: 2}
 --- !u!212 &1825346122
 SpriteRenderer:
   m_ObjectHideFlags: 0

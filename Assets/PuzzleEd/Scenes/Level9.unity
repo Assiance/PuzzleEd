@@ -550,7 +550,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5.00448418
+  orthographic size: 5.02040815
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -2921,7 +2921,6 @@ GameObject:
   - 114: {fileID: 1143613029}
   - 212: {fileID: 1143613027}
   - 61: {fileID: 1143613026}
-  - 61: {fileID: 1143613031}
   - 114: {fileID: 1143613028}
   - 50: {fileID: 1143613030}
   - 199: {fileID: 1143613033}
@@ -2955,9 +2954,9 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_UsedByEffector: 0
-  m_Offset: {x: .25, y: 2.5}
+  m_Offset: {x: .0599999987, y: .680000007}
   serializedVersion: 2
-  m_Size: {x: 4, y: 4}
+  m_Size: {x: 4, y: 8}
 --- !u!212 &1143613027
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3029,19 +3028,6 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
---- !u!61 &1143613031
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1143613024}
-  m_Enabled: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_Offset: {x: -2.5999999, y: 0}
-  serializedVersion: 2
-  m_Size: {x: 1, y: 10}
 --- !u!198 &1143613032
 ParticleSystem:
   m_ObjectHideFlags: 0
@@ -4270,9 +4256,9 @@ BoxCollider2D:
   m_GameObject: {fileID: 1175223919}
   m_Enabled: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
-  m_Offset: {x: -.5, y: 2.5}
+  m_Offset: {x: .0599999987, y: .680000007}
   serializedVersion: 2
   m_Size: {x: 2, y: 2}
 --- !u!212 &1175223923
@@ -4542,9 +4528,9 @@ BoxCollider2D:
   m_GameObject: {fileID: 1267226844}
   m_Enabled: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -.620000005, y: 1}
   serializedVersion: 2
   m_Size: {x: 2, y: 2}
 --- !u!212 &1267226848
@@ -5373,9 +5359,9 @@ BoxCollider2D:
   m_GameObject: {fileID: 1674634254}
   m_Enabled: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: .800000012, y: 0}
   serializedVersion: 2
   m_Size: {x: 2, y: 2}
 --- !u!212 &1674634257
@@ -5914,11 +5900,11 @@ BoxCollider2D:
   m_GameObject: {fileID: 1825346118}
   m_Enabled: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
-  m_Offset: {x: 1, y: 0}
+  m_Offset: {x: .400000006, y: -.5}
   serializedVersion: 2
-  m_Size: {x: 2, y: 8}
+  m_Size: {x: 2, y: 2}
 --- !u!212 &1825346122
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -7457,7 +7443,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_Offset: {x: .400000006, y: -.5}
   serializedVersion: 2
-  m_Size: {x: 5, y: 5}
+  m_Size: {x: 4, y: 7}
 --- !u!50 &1911467958
 Rigidbody2D:
   m_ObjectHideFlags: 0
@@ -8682,9 +8668,9 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_UsedByEffector: 0
-  m_Offset: {x: 0, y: 1}
+  m_Offset: {x: -.620000005, y: 1}
   serializedVersion: 2
-  m_Size: {x: 2.5, y: 4.5}
+  m_Size: {x: 4, y: 7}
 --- !u!212 &1915184938
 SpriteRenderer:
   m_ObjectHideFlags: 0

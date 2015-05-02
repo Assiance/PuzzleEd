@@ -482,7 +482,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5.00448418
+  orthographic size: 5.02040815
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -2960,7 +2960,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_Offset: {x: .653580427, y: -1.05105507}
   serializedVersion: 2
-  m_Size: {x: 4.80715513, y: 5.67252541}
+  m_Size: {x: 4.80715513, y: 7}
 --- !u!212 &1143613027
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4142,11 +4142,11 @@ BoxCollider2D:
   m_GameObject: {fileID: 1175223919}
   m_Enabled: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
-  m_Offset: {x: .0458431244, y: -.848247707}
+  m_Offset: {x: .653580427, y: -1.05105507}
   serializedVersion: 2
-  m_Size: {x: 3.56740952, y: 5.57300282}
+  m_Size: {x: 1.5, y: 2}
 --- !u!212 &1175223923
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4509,11 +4509,11 @@ BoxCollider2D:
   m_GameObject: {fileID: 1267226844}
   m_Enabled: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
-  m_Offset: {x: 1.25035763, y: -1.91363215}
+  m_Offset: {x: -.479999989, y: -1.41241205}
   serializedVersion: 2
-  m_Size: {x: 3.91037941, y: 6.47594929}
+  m_Size: {x: 2, y: 2}
 --- !u!212 &1267226848
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4993,11 +4993,11 @@ BoxCollider2D:
   m_GameObject: {fileID: 1674634254}
   m_Enabled: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
-  m_Offset: {x: -1.47819042, y: -.953040719}
+  m_Offset: {x: -.300518274, y: -1.29472852}
   serializedVersion: 2
-  m_Size: {x: 5.88996792, y: 3.90608191}
+  m_Size: {x: 2, y: 1}
 --- !u!212 &1674634257
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5359,11 +5359,11 @@ BoxCollider2D:
   m_GameObject: {fileID: 1825346118}
   m_Enabled: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
-  m_Offset: {x: -2.73807526, y: .859493017}
+  m_Offset: {x: -1.52328491, y: 1.2047255}
   serializedVersion: 2
-  m_Size: {x: 6.84896708, y: 6.28101397}
+  m_Size: {x: 1.5, y: 1.5}
 --- !u!212 &1825346122
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -8096,9 +8096,9 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_UsedByEffector: 0
-  m_Offset: {x: .351810455, y: -1.41241205}
+  m_Offset: {x: -.479999989, y: -1.41241205}
   serializedVersion: 2
-  m_Size: {x: 5.61602068, y: 9.32480907}
+  m_Size: {x: 4, y: 9.32480907}
 --- !u!212 &1915184938
 SpriteRenderer:
   m_ObjectHideFlags: 0
