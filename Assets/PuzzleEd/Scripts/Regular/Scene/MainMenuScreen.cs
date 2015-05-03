@@ -84,6 +84,11 @@ namespace Assets.PuzzleEd.Scripts.Regular.Scene
             Application.OpenURL("http://everfluxstudios.com/");
         }
 
+        public void CloseApplication()
+        {
+            Application.Quit();
+        }
+
         public void DisplayMenu()
         {
             PuzzleSoundController.Instance.PlaySoundByIndex(SoundStruct.OnSelectUI, Vector3.zero);
