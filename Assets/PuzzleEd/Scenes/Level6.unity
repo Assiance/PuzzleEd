@@ -482,7 +482,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5.02040815
+  orthographic size: 4.99539137
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -3019,7 +3019,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_Offset: {x: .124545097, y: .266907066}
   serializedVersion: 2
-  m_Size: {x: 3, y: 5.85671997}
+  m_Size: {x: 2, y: 3}
 --- !u!212 &1143613027
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5759,7 +5759,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_Offset: {x: .149774551, y: -.829614401}
   serializedVersion: 2
-  m_Size: {x: 9.77138519, y: 1.42144942}
+  m_Size: {x: 4, y: 1.42144942}
 --- !u!212 &1872762317
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -7019,7 +7019,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_Offset: {x: -.691435337, y: 2.26068401}
   serializedVersion: 2
-  m_Size: {x: 7.18287754, y: 7.95329094}
+  m_Size: {x: 3, y: 3}
 --- !u!50 &1911467958
 Rigidbody2D:
   m_ObjectHideFlags: 0
@@ -8246,7 +8246,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_Offset: {x: 1.01017714, y: -.899999976}
   serializedVersion: 2
-  m_Size: {x: 3.9907527, y: 4.49214506}
+  m_Size: {x: 2, y: 2}
 --- !u!212 &1915184938
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -9860,6 +9860,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b8008c4becdbeb4e9c1de8223817038, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ClickRadius: 1
 --- !u!4 &2056564339
 Transform:
   m_ObjectHideFlags: 0
@@ -9883,6 +9884,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa860a34074ea73419dfac6c6a3cd995, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ClickRadius: 1
 --- !u!1 &2061387896
 GameObject:
   m_ObjectHideFlags: 0

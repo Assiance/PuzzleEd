@@ -1501,7 +1501,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 405444, guid: 607fb23ca71b43247ada9dce856c103c, type: 2}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 11441030, guid: 607fb23ca71b43247ada9dce856c103c, type: 2}
+      propertyPath: ShouldFadeInAtStart
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 607fb23ca71b43247ada9dce856c103c, type: 2}
