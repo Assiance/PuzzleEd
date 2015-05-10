@@ -264,6 +264,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   GamePrefsName: DefaultGame
   IsSpanish: {fileID: 345620681}
+  PlayGameButton: {fileID: 0}
+  ExitGameButton: {fileID: 0}
+  OurSiteButton: {fileID: 0}
 --- !u!114 &99890831
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -545,7 +548,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 5.0086956
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -724,6 +727,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   GamePrefsName: DefaultGame
   IsSpanish: {fileID: 345620681}
+  PlayGameButton: {fileID: 0}
+  ExitGameButton: {fileID: 0}
+  OurSiteButton: {fileID: 0}
 --- !u!1 &339612997
 GameObject:
   m_ObjectHideFlags: 0
@@ -794,6 +800,7 @@ GameObject:
   m_Component:
   - 224: {fileID: 345620680}
   - 114: {fileID: 345620681}
+  - 114: {fileID: 345620682}
   m_Layer: 5
   m_Name: Toggle
   m_TagString: Untagged
@@ -862,12 +869,13 @@ MonoBehaviour:
   onValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: 
+      - m_Target: {fileID: 345620682}
+        m_MethodName: ToggleLanguage
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine, Version=0.0.0.0,
+            Culture=neutral, PublicKeyToken=null
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -876,6 +884,22 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.Toggle+ToggleEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
   m_IsOn: 0
+--- !u!114 &345620682
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 345620679}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c27abd8bbeb73a741a6bf52b4a029fd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GamePrefsName: DefaultGame
+  IsSpanish: {fileID: 345620681}
+  PlayGameButton: {fileID: 226721622}
+  ExitGameButton: {fileID: 511291091}
+  OurSiteButton: {fileID: 99890831}
 --- !u!1 &372741954
 GameObject:
   m_ObjectHideFlags: 0
@@ -1053,6 +1077,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   GamePrefsName: DefaultGame
   IsSpanish: {fileID: 345620681}
+  PlayGameButton: {fileID: 0}
+  ExitGameButton: {fileID: 0}
+  OurSiteButton: {fileID: 0}
 --- !u!114 &511291091
 MonoBehaviour:
   m_ObjectHideFlags: 0

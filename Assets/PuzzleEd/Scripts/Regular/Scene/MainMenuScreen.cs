@@ -15,6 +15,10 @@ namespace Assets.PuzzleEd.Scripts.Regular.Scene
     {
         public string GamePrefsName = "DefaultGame";
         public Toggle IsSpanish;
+        public RectTransform PlayGameButton;
+        public RectTransform ExitGameButton;
+        public RectTransform OurSiteButton;
+
         //going make this static so I can keep same instance when the new object gets created
         //if we dont do this we actually have multiple instance of them.
         static bool MenuOn;
@@ -101,6 +105,30 @@ namespace Assets.PuzzleEd.Scripts.Regular.Scene
             else
             {
                 ToggleMenu(panelActive); 
+            }
+        }
+
+        public void ToggleLanguage()
+        {
+            if (IsSpanish.isOn)
+            {
+                PlayGameButton.sizeDelta = new Vector2(220, PlayGameButton.rect.height);
+                ExitGameButton.sizeDelta = new Vector2(220, ExitGameButton.rect.height);
+                OurSiteButton.sizeDelta = new Vector2(220, OurSiteButton.rect.height);
+
+                PlayGameButton.GetComponentInChildren<Text>().text = "Jugar";
+                ExitGameButton.GetComponentInChildren<Text>().text = "Salir del Juego";
+                OurSiteButton.GetComponentInChildren<Text>().text = "Nuestro Sitio";
+            }
+            else
+            {
+                PlayGameButton.sizeDelta = new Vector2(170, PlayGameButton.rect.height);
+                ExitGameButton.sizeDelta = new Vector2(170, ExitGameButton.rect.height);
+                OurSiteButton.sizeDelta = new Vector2(170, OurSiteButton.rect.height);
+
+                PlayGameButton.GetComponentInChildren<Text>().text = "Play";
+                ExitGameButton.GetComponentInChildren<Text>().text = "Exit Game";
+                OurSiteButton.GetComponentInChildren<Text>().text = "Our Site";
             }
         }
     }
