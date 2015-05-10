@@ -12,6 +12,7 @@ namespace Assets.PuzzleEd.Scripts.Regular.General
     {
         public Transform SoundController;
         public Transform MusicController;
+        public Transform AdManager;
 
         void Awake()
         {
@@ -19,6 +20,11 @@ namespace Assets.PuzzleEd.Scripts.Regular.General
 
             if (sceneManager == null)
                 InitiateSceneManager();
+
+            var adManager = FindObjectOfType<AdManager>();
+
+            if(adManager == null)
+                InitiateAdController();
 
             var soundController = FindObjectOfType<PuzzleSoundController>();
 
@@ -34,7 +40,6 @@ namespace Assets.PuzzleEd.Scripts.Regular.General
 
             if (gameController == null)
                 InitiateGameController();
-
         }
 
         private void InitiateSceneManager()
@@ -46,6 +51,11 @@ namespace Assets.PuzzleEd.Scripts.Regular.General
         private void InitiateSoundController()
         {
             Instantiate(SoundController);
+        }
+
+        private void InitiateAdController()
+        {
+            Instantiate(AdManager);
         }
 
         private void InitiateMusicController()

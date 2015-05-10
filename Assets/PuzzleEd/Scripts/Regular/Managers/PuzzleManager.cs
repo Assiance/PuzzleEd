@@ -271,6 +271,10 @@ namespace Assets.PuzzleEd.Scripts.Regular.Managers
 
             yield return new WaitForSeconds(2f);
 
+            GameController.Instance.PlayAd("defaultZone");
+
+            yield return new WaitForSeconds(2f);
+
             GameController.Instance.LevelFinished();
         }
 

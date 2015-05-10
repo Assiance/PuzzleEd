@@ -11,6 +11,7 @@ namespace Assets.PuzzleEd.Scripts.Regular.Controllers
     {
         private SceneManager _sceneManager;
         private PuzzleManager _puzzleManager;
+        private AdManager _adManager;
 
         public PuzzleManager PuzzleManager { get { return _puzzleManager; } }
         public bool IsSpanish = false;
@@ -60,6 +61,8 @@ namespace Assets.PuzzleEd.Scripts.Regular.Controllers
             _sceneManager.GameLevelNum = Convert.ToInt32(Application.loadedLevelName.Replace("Level", ""));
 
             _puzzleManager = FindObjectOfType<PuzzleManager>();
+
+            _adManager = FindObjectOfType<AdManager>();
         }
 
         void Start()
@@ -73,6 +76,7 @@ namespace Assets.PuzzleEd.Scripts.Regular.Controllers
         {
             yield return new WaitForSeconds(2f);
             StartGame();
+
         }
 
         public override void StartGame()
@@ -84,13 +88,18 @@ namespace Assets.PuzzleEd.Scripts.Regular.Controllers
         public void PuzzleFinished()
         {
             Debug.Log("Puzzle Finished");
-            _puzzleManager.PuzzleFinished(); 
+            _puzzleManager.PuzzleFinished();
         }
 
         public void LettersFinished()
         {
             Debug.Log("Letters Finished");
             _puzzleManager.LettersFinished();
+        }
+
+        public void PlayAd(string zoneName)
+        {
+            _adManager.ShowAd(zoneName);
         }
 
         public void LevelFinished()
