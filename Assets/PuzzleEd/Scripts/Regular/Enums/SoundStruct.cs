@@ -59,5 +59,7 @@ namespace Assets.PuzzleEd.Scripts.Regular.Enums
         public static int AlphabetY = 49;
         public static int AlphabetZ = 50;
         public static int OnDropFailure = 51;
+        public static int YouWinVoice = 78;
+        public static int OnWinSound = 79;
     }
 }

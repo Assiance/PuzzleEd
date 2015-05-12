@@ -269,6 +269,14 @@ namespace Assets.PuzzleEd.Scripts.Regular.Managers
             //Say Animal Name
             PuzzleSoundController.PlayAnimalSound(EnglishPuzzleName, !GameController.Instance.IsSpanish);
 
+            yield return new WaitForSeconds(1.2f);
+
+            PuzzleSoundController.Instance.PlaySoundByIndex(SoundStruct.OnWinSound, Vector3.zero);
+
+            yield return new WaitForSeconds(1.5f);
+
+            PuzzleSoundController.Instance.PlaySoundByIndex(SoundStruct.YouWinVoice, Vector3.zero);
+
             yield return new WaitForSeconds(2f);
 
             GameController.Instance.PlayAd("defaultZone");
