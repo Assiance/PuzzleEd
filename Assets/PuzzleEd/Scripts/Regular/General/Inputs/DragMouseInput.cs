@@ -6,9 +6,11 @@ namespace Assets.PuzzleEd.Scripts.Regular.Inputs
 {
     public class DragMouseInput : ESMonoBehaviour
     {
-        private RaycastHit2D _hit;
+        private Collider2D _hitCollider;
         private Drag _dragComponent;
         private Vector3 _newPosition;
+
+        public float ClickRadius = 1f;
         
         void Update()
         {
@@ -50,11 +52,11 @@ namespace Assets.PuzzleEd.Scripts.Regular.Inputs
 
         private void GetHitObject()
         {
-            _hit = Physics2D.Raycast(_newPosition, Vector2.zero);
-            if (_hit.collider != null)
+            _hitCollider = Physics2D.OverlapCircle(_newPosition, ClickRadius);
+            if (_hitCollider != null)
             {
-                Debug.Log("I'm hitting " + _hit.collider.name);
-                _dragComponent = _hit.transform.gameObject.GetComponent<Drag>();
+                Debug.Log("I'm hitting " + _hitCollider.name);
+                _dragComponent = _hitCollider.transform.gameObject.GetComponent<Drag>();
             }
         }
     }

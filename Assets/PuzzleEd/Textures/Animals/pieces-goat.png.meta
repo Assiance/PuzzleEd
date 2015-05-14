@@ -1,7 +1,14 @@
 fileFormatVersion: 2
 guid: b4f275ab86c3f6f408b1d7384ae43780
+timeCreated: 1428982255
+licenseType: Free
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: pieces-goat_0
+    21300002: pieces-goat_1
+    21300004: pieces-goat_2
+    21300006: pieces-goat_3
+    21300008: pieces-goat_4
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -20,18 +27,22 @@ TextureImporter:
   isReadable: 0
   grayScaleToAlpha: 0
   generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 8
+  cubemapConvolutionExponent: 1.5
   seamlessCubemap: 0
   textureFormat: -1
   maxTextureSize: 1024
   textureSettings:
     filterMode: -1
-    aniso: -1
+    aniso: 16
     mipBias: -1
-    wrapMode: -1
+    wrapMode: 1
   nPOTScale: 0
   lightmap: 0
+  rGBM: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -42,6 +53,58 @@ TextureImporter:
   textureType: 8
   buildTargetSettings: []
   spriteSheet:
-    sprites: []
+    sprites:
+    - name: pieces-goat_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 4665
+        width: 1400
+        height: 2324
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: pieces-goat_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3259
+        width: 1321
+        height: 1297
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: pieces-goat_2
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 2228
+        width: 662
+        height: 840
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: pieces-goat_3
+      rect:
+        serializedVersion: 2
+        x: 413
+        y: 1471
+        width: 642
+        height: 669
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: pieces-goat_4
+      rect:
+        serializedVersion: 2
+        x: 809
+        y: 106
+        width: 591
+        height: 1242
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 
+  assetBundleName: 
+  assetBundleVariant: 

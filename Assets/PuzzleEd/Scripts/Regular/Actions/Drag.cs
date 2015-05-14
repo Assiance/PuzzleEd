@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Collections;
+using Assets.PuzzleEd.Scripts.Regular.Controllers;
+using Assets.PuzzleEd.Scripts.Regular.Enums;
 using Assets.PuzzleEd.Scripts.Regular.General;
 using UnityEngine;
 
@@ -18,7 +21,7 @@ namespace Assets.PuzzleEd.Scripts.Regular.Actions
 
         void Awake()
         {
-            RestorePosition = gameObject.transform.position;   
+            RestorePosition = gameObject.transform.position;
         }
 
         #region Start Drag
@@ -65,7 +68,8 @@ namespace Assets.PuzzleEd.Scripts.Regular.Actions
         {
             if (CollidingDropArea != null)
             {
-                iTween.MoveTo(gameObject, iTween.Hash("x", CollidingDropArea.gameObject.transform.position.x, "Y", CollidingDropArea.gameObject.transform.position.y, "time", RestoreSpeed));
+                iTween.MoveTo(gameObject, iTween.Hash("x", CollidingDropArea.gameObject.transform.position.x, "Y", CollidingDropArea.gameObject.transform.position.y, "time", RestoreSpeed, "easetype", "easeOutBack"));
+                BaseSoundController.Instance.PlaySoundByIndex(SoundStruct.OnMoveTo, Vector3.zero);
             }
             else
             {
@@ -78,7 +82,8 @@ namespace Assets.PuzzleEd.Scripts.Regular.Actions
 
         public void RestoreToInitialPosition()
         {
-            iTween.MoveTo(gameObject, iTween.Hash("x", RestorePosition.x, "Y", RestorePosition.y, "time", RestoreSpeed));
+            iTween.MoveTo(gameObject, iTween.Hash("x", RestorePosition.x, "Y", RestorePosition.y, "time", RestoreSpeed, "easetype", "easeOutBack"));
+            BaseSoundController.Instance.PlaySoundByIndex(SoundStruct.OnMoveTo, Vector3.zero);
         }
     }
 }

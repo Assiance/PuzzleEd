@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,16 +11,22 @@ namespace Assets.PuzzleEd.Scripts.Regular.Actions
 {
     public class PuzzleDrag : Drag
     {
-        private PuzzlePiece puzzlePiece;
+        private PuzzlePiece _puzzlePiece;
+        private SpriteRenderer _spriteRenderer;
 
         void Awake()
         {
-            puzzlePiece = GetComponent<PuzzlePiece>();
+            _puzzlePiece = GetComponent<PuzzlePiece>();
+            _spriteRenderer = GetComponent<SpriteRenderer>();
         }
 
         protected override void DragStart()
         {
             base.DragStart();
+
+            //Draw in front of other objects on drag
+            if (_spriteRenderer != null)
+                _spriteRenderer.sortingOrder = 5;
 
             BaseSoundController.Instance.PlaySoundByIndex(SoundStruct.OnPuzzleDragStart, Vector3.zero);
         }
@@ -28,16 +35,27 @@ namespace Assets.PuzzleEd.Scripts.Regular.Actions
         {
             base.Dragging(newPosition);
 
-            if (puzzlePiece.ParticleTrail != null && puzzlePiece.ParticleTrail.isPlaying == false)
-                puzzlePiece.ParticleTrail.Play();
+            if (_puzzlePiece.ParticleTrail != null && _puzzlePiece.ParticleTrail.isPlaying == false)
+                _puzzlePiece.ParticleTrail.Play();
         }
 
         protected override void DragStop()
         {
             base.DragStop();
 
-            if (puzzlePiece.ParticleTrail != null && puzzlePiece.ParticleTrail.isPlaying)
-                puzzlePiece.ParticleTrail.Stop();
+            StartCoroutine(SetToOriginalSortOrder());
+
+            if (_puzzlePiece.ParticleTrail != null && _puzzlePiece.ParticleTrail.isPlaying)
+                _puzzlePiece.ParticleTrail.Stop();
         }
+
+        public IEnumerator SetToOriginalSortOrder()
+        {
+            yield return new WaitForSeconds(0.5f);
+
+            if (_spriteRenderer != null)
+                _spriteRenderer.sortingOrder = 0;
+        }
+
     }
 }

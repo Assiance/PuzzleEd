@@ -24,6 +24,8 @@ namespace Assets.PuzzleEd.Scripts.Regular.Actions
         protected override void FailDrop(Drag dragComponent)
         {
             base.FailDrop(dragComponent);
+
+            BaseSoundController.Instance.PlaySoundByIndex(SoundStruct.OnDropFailure, Vector3.zero);
         }
 
         protected override void DropHover(Drag dragComponent)

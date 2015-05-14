@@ -2,18 +2,19 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Assets.PuzzleEd.Scripts.Regular.General;
 using UnityEngine;
 
 namespace Assets.PuzzleEd.Scripts.Regular.Controllers
 {
-    public class MusicController : MonoBehaviour
+    public class MusicController : ESMonoBehaviour
     {
         private float _volume;
         private AudioSource _source;
         private GameObject _sourceGameObject;
         private int _fadeState;
         private int _targetFadeState;
-        private float _volumeOn = 100f;
+        private float _volumeOn = 0.625f;
         private float _targetVolume;
 
         public string GamePrefsName = "DefaultGame";
@@ -22,8 +23,42 @@ namespace Assets.PuzzleEd.Scripts.Regular.Controllers
         public float FadeTime = 15f;
         public bool ShouldFadeInAtStart = true;
 
+        #region Singleton
+        private static MusicController _instance;
+        public static MusicController Instance
+        {
+            get
+            {
+                if (_instance == null)
+                {
+                    _instance = FindObjectOfType(typeof(MusicController)) as MusicController;
+
+                    if (_instance == null)
+                        _instance = new GameObject("MusicController Temporary Instance", typeof(MusicController)).GetComponent<MusicController>();
+                }
+
+                return _instance;
+            }
+        }
+
+        void Awake()
+        {
+            if (_instance == null)
+            {
+                _instance = this;
+            }
+            else
+            {
+                if (this != _instance)
+                    Destroy(this.gameObject);
+            }
+        }
+        #endregion
+
         void Start()
         {
+            DontDestroyOnLoad(_instance.gameObject);
+
             _volumeOn = PlayerPrefs.GetFloat(GamePrefsName + "_MusicVol", _volumeOn);
             _sourceGameObject = new GameObject("Music_AudioSource");
             _source = _sourceGameObject.AddComponent<AudioSource>();
@@ -31,6 +66,8 @@ namespace Assets.PuzzleEd.Scripts.Regular.Controllers
             _source.playOnAwake = true;
             _source.clip = Music;
             _source.volume = _volume;
+
+            _sourceGameObject.transform.parent = CachedTransform;
 
             if (ShouldFadeInAtStart)
             {

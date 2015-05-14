@@ -1,7 +1,10 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Assets.PuzzleEd.Scripts.Regular.Controllers;
+using Assets.PuzzleEd.Scripts.Regular.Enums;
 using UnityEngine;
 using Assets.PuzzleEd.Scripts.Regular.General;
 using UnityEngine.UI;
@@ -12,17 +15,35 @@ namespace Assets.PuzzleEd.Scripts.Regular.Scene
     {
         public string GamePrefsName = "DefaultGame";
         public Toggle IsSpanish;
+        public RectTransform PlayGameButton;
+        public RectTransform ExitGameButton;
+        public RectTransform OurSiteButton;
+
         //going make this static so I can keep same instance when the new object gets created
         //if we dont do this we actually have multiple instance of them.
         static bool MenuOn;
         static PanelActive  panelActive;
+
         public void PlayGame()
         {
+            PuzzleSoundController.Instance.PlaySoundByIndex(SoundStruct.OnSelectUI, Vector3.zero);
             PlayerPrefs.SetInt(GamePrefsName + "_Language", Convert.ToInt32(IsSpanish.isOn));
+            StartCoroutine("LoadLevel");
+        }
+
+        public IEnumerator LoadLevel()
+        {
+            yield return new WaitForSeconds(1.4f);
             Application.LoadLevel("Level1");
         }
 
-    
+        public void MainMenu()
+        {
+            Destroy(GameController.Instance);
+
+            PuzzleSoundController.Instance.PlaySoundByIndex(SoundStruct.OnSelectUI, Vector3.zero);
+            Application.LoadLevel("MainMenuScene");
+        }
 
         private void ToggleMenu(PanelActive menuactive)
         {
@@ -41,6 +62,7 @@ namespace Assets.PuzzleEd.Scripts.Regular.Scene
 
         public void Goback()
         {
+            PuzzleSoundController.Instance.PlaySoundByIndex(SoundStruct.OnSelectUI, Vector3.zero);
             var canvasgroup = gameObject.transform.parent.gameObject.transform.parent.gameObject.GetComponent<CanvasGroup>();
             canvasgroup.alpha = 0;
             canvasgroup.blocksRaycasts = false;
@@ -48,6 +70,7 @@ namespace Assets.PuzzleEd.Scripts.Regular.Scene
             var Menupanel = gameObject.transform.parent.gameObject.transform.parent.gameObject.transform.parent.GetComponent<CanvasGroup>();
             Menupanel.interactable = true;
         }
+
         public void Showcredits()
         {
             var creditpanel = gameObject.transform.parent.gameObject.transform.Find("creditsPanel");
@@ -58,12 +81,22 @@ namespace Assets.PuzzleEd.Scripts.Regular.Scene
             creditpanel.gameObject.GetComponent<CanvasGroup>().blocksRaycasts = true;
             
         }
+
         public void OpenUrl()
         {
-            Application.OpenURL("http://everflux.com/");
+            PuzzleSoundController.Instance.PlaySoundByIndex(SoundStruct.OnSelectUI, Vector3.zero);
+            Application.OpenURL("http://everfluxstudios.com/");
         }
+
+        public void CloseApplication()
+        {
+            Application.Quit();
+        }
+
         public void DisplayMenu()
         {
+            PuzzleSoundController.Instance.PlaySoundByIndex(SoundStruct.OnSelectUI, Vector3.zero);
+
             if(panelActive==null)
             {
                 panelActive = gameObject.transform.parent.gameObject.GetComponentInChildren<PanelActive>();
@@ -73,7 +106,30 @@ namespace Assets.PuzzleEd.Scripts.Regular.Scene
             {
                 ToggleMenu(panelActive); 
             }
-      
+        }
+
+        public void ToggleLanguage()
+        {
+            if (IsSpanish.isOn)
+            {
+                PlayGameButton.sizeDelta = new Vector2(220, PlayGameButton.rect.height);
+                ExitGameButton.sizeDelta = new Vector2(220, ExitGameButton.rect.height);
+                OurSiteButton.sizeDelta = new Vector2(220, OurSiteButton.rect.height);
+
+                PlayGameButton.GetComponentInChildren<Text>().text = "Jugar";
+                ExitGameButton.GetComponentInChildren<Text>().text = "Salir del Juego";
+                OurSiteButton.GetComponentInChildren<Text>().text = "Nuestro Sitio";
+            }
+            else
+            {
+                PlayGameButton.sizeDelta = new Vector2(170, PlayGameButton.rect.height);
+                ExitGameButton.sizeDelta = new Vector2(170, ExitGameButton.rect.height);
+                OurSiteButton.sizeDelta = new Vector2(170, OurSiteButton.rect.height);
+
+                PlayGameButton.GetComponentInChildren<Text>().text = "Play";
+                ExitGameButton.GetComponentInChildren<Text>().text = "Exit Game";
+                OurSiteButton.GetComponentInChildren<Text>().text = "Our Site";
+            }
         }
     }
 }
