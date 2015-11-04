@@ -9,6 +9,8 @@ namespace Assets.PuzzleEd.Scripts.Regular.Scene
     {
         private void Start()
         {
+            Screen.orientation = ScreenOrientation.AutoRotation;
+
             StartCoroutine(LoadMainMenu());
         }
          
