@@ -155,7 +155,7 @@ namespace Assets.PuzzleEd.Scripts.Regular.Managers
             PuzzlePieces.ForEach(x => x.gameObject.SetActive(false));
             var completedPuzzleRenderer = CompletedPuzzle.GetComponent<SpriteRenderer>();
             completedPuzzleRenderer.color = Color.white;
-            completedPuzzleRenderer.sortingOrder = -1;
+            completedPuzzleRenderer.sortingOrder = 0;
 
             CompletedPuzzle.SetActive(true);
 
@@ -194,6 +194,8 @@ namespace Assets.PuzzleEd.Scripts.Regular.Managers
 
             foreach (var letterPiece in LetterPieces)
             {
+                letterPiece.GetComponentInChildren<MeshRenderer>().sortingOrder = 1;
+
                 var item = tempList.First(x => x.DropId == letterPiece.Character);
                 letterPiece.transform.position = new Vector2(item.CachedTransform.position.x, item.CachedTransform.position.y);
                 tempList.Remove(item);
