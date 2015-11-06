@@ -229,7 +229,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 990df78696edfe14b872bb953c09b26e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DragId: A
+  DragId: L
   RestorePositionOnMissDrop: 0
   RestoreSpeed: 1.29999995
   RestorePosition: {x: 0, y: 0, z: 0}
@@ -452,7 +452,7 @@ TextMesh:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 171465524}
-  m_Text: A
+  m_Text: B
   m_OffsetZ: -.409999996
   m_CharacterSize: .810000002
   m_LineSpacing: .439999998
@@ -735,7 +735,7 @@ TextMesh:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 487406080}
-  m_Text: L
+  m_Text: O
   m_OffsetZ: -.409999996
   m_CharacterSize: .810000002
   m_LineSpacing: .439999998
@@ -870,7 +870,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e9ca6825e7e16f4bb191590cd698593, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DropId: Z
+  DropId: C
   EscapeOndrop: 1
   IsEnglish: 0
   LetterOrder: 1
@@ -985,7 +985,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 990df78696edfe14b872bb953c09b26e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DragId: C
+  DragId: A
   RestorePositionOnMissDrop: 0
   RestoreSpeed: 1.29999995
   RestorePosition: {x: 0, y: 0, z: 0}
@@ -1851,7 +1851,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 990df78696edfe14b872bb953c09b26e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DragId: B
+  DragId: A
   RestorePositionOnMissDrop: 0
   RestoreSpeed: 1.29999995
   RestorePosition: {x: 0, y: 0, z: 0}
@@ -1970,7 +1970,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 990df78696edfe14b872bb953c09b26e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DragId: O
+  DragId: C
   RestorePositionOnMissDrop: 0
   RestoreSpeed: 1.29999995
   RestorePosition: {x: 0, y: 0, z: 0}
@@ -2097,7 +2097,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e9ca6825e7e16f4bb191590cd698593, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DropId: O
+  DropId: B
   EscapeOndrop: 1
   IsEnglish: 0
   LetterOrder: 3
@@ -3599,7 +3599,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e9ca6825e7e16f4bb191590cd698593, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DropId: R
+  DropId: L
   EscapeOndrop: 1
   IsEnglish: 0
   LetterOrder: 5
@@ -4001,7 +4001,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 990df78696edfe14b872bb953c09b26e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DragId: L
+  DragId: O
   RestorePositionOnMissDrop: 0
   RestoreSpeed: 1.29999995
   RestorePosition: {x: 0, y: 0, z: 0}
@@ -4363,7 +4363,7 @@ TextMesh:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1647235598}
-  m_Text: B
+  m_Text: A
   m_OffsetZ: -.409999996
   m_CharacterSize: .810000002
   m_LineSpacing: .439999998
@@ -4763,7 +4763,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e9ca6825e7e16f4bb191590cd698593, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DropId: O
+  DropId: L
   EscapeOndrop: 1
   IsEnglish: 0
   LetterOrder: 6
@@ -4943,7 +4943,7 @@ TextMesh:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1830854958}
-  m_Text: O
+  m_Text: C
   m_OffsetZ: -.409999996
   m_CharacterSize: .810000002
   m_LineSpacing: .439999998
@@ -7572,7 +7572,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 990df78696edfe14b872bb953c09b26e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DragId: A
+  DragId: B
   RestorePositionOnMissDrop: 0
   RestoreSpeed: 1.29999995
   RestorePosition: {x: 0, y: 0, z: 0}
@@ -8845,7 +8845,7 @@ TextMesh:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1924620660}
-  m_Text: C
+  m_Text: A
   m_OffsetZ: -.409999996
   m_CharacterSize: .810000002
   m_LineSpacing: .439999998
@@ -8963,7 +8963,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e9ca6825e7e16f4bb191590cd698593, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DropId: R
+  DropId: A
   EscapeOndrop: 1
   IsEnglish: 0
   LetterOrder: 4
@@ -9463,7 +9463,7 @@ TextMesh:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2123198612}
-  m_Text: A
+  m_Text: L
   m_OffsetZ: -.409999996
   m_CharacterSize: .810000002
   m_LineSpacing: .439999998
@@ -9530,7 +9530,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e9ca6825e7e16f4bb191590cd698593, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DropId: Z
+  DropId: A
   EscapeOndrop: 1
   IsEnglish: 0
   LetterOrder: 2
