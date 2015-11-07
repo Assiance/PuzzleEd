@@ -192,6 +192,9 @@ namespace Assets.PuzzleEd.Scripts.Regular.Managers
             var tempList = new List<LetterDrop>();
             tempList.AddRange(LetterDrops);
 
+            //Order letter drops
+            tempList = tempList.OrderBy(x => x.LetterOrder).ToList();
+
             foreach (var letterPiece in LetterPieces)
             {
                 letterPiece.GetComponentInChildren<MeshRenderer>().sortingOrder = 1;
