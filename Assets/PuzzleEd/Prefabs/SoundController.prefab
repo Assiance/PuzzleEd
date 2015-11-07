@@ -118,6 +118,8 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 9fefa372710a44f42b94771c0c30325f, type: 3}
   - {fileID: 8300000, guid: 424a9b1af544e3248b8f2e6c601db5e4, type: 3}
   - {fileID: 8300000, guid: 4d1b2b2daec08b046a6d57d0d46025b8, type: 3}
+  - {fileID: 8300000, guid: 5e7060fd49c71f94e8c035f680d15914, type: 3}
+  - {fileID: 8300000, guid: ba35779db80919d4b87d03448967f1ec, type: 3}
   Volume: 100
   GamePrefsName: DefaultGame
 --- !u!1001 &100100000

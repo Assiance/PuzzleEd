@@ -16,7 +16,7 @@ namespace Assets.PuzzleEd.Scripts.Regular.Managers
 
         void Awake()
         {
-            Advertisement.Initialize(_gameID, true);
+            //Advertisement.Initialize(_gameID, true);
         }
 
         public void ShowAd(string zone = "", Action<ShowResult> adCallback = null)
@@ -24,15 +24,17 @@ namespace Assets.PuzzleEd.Scripts.Regular.Managers
 #if UNITY_EDITOR
             StartCoroutine(WaitForAd());
 #endif
+            if (Advertisement.IsReady())
+                Advertisement.Show();
 
-            if (string.Equals(zone, string.Empty))
-                zone = null;
+            //if (string.Equals(zone, string.Empty))
+            //    zone = null;
 
-            ShowOptions options = new ShowOptions();
-            options.resultCallback = adCallback;
+            //ShowOptions options = new ShowOptions();
+            //options.resultCallback = adCallback;
 
-            if (Advertisement.isReady(zone))
-                Advertisement.Show(zone, options);
+            //if (Advertisement.IsReady(zone))
+            //    Advertisement.Show(zone, options);
         }
 
         //void AdCallbackhandler(ShowResult result)
