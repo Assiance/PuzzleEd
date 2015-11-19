@@ -155,7 +155,7 @@ namespace Assets.PuzzleEd.Scripts.Regular.Managers
             PuzzlePieces.ForEach(x => x.gameObject.SetActive(false));
             var completedPuzzleRenderer = CompletedPuzzle.GetComponent<SpriteRenderer>();
             completedPuzzleRenderer.color = Color.white;
-            completedPuzzleRenderer.sortingOrder = -1;
+            completedPuzzleRenderer.sortingOrder = 0;
 
             CompletedPuzzle.SetActive(true);
 
@@ -192,8 +192,13 @@ namespace Assets.PuzzleEd.Scripts.Regular.Managers
             var tempList = new List<LetterDrop>();
             tempList.AddRange(LetterDrops);
 
+            //Order letter drops
+            tempList = tempList.OrderBy(x => x.LetterOrder).ToList();
+
             foreach (var letterPiece in LetterPieces)
             {
+                letterPiece.GetComponentInChildren<MeshRenderer>().sortingOrder = 1;
+
                 var item = tempList.First(x => x.DropId == letterPiece.Character);
                 letterPiece.transform.position = new Vector2(item.CachedTransform.position.x, item.CachedTransform.position.y);
                 tempList.Remove(item);
@@ -277,9 +282,9 @@ namespace Assets.PuzzleEd.Scripts.Regular.Managers
 
             PuzzleSoundController.Instance.PlaySoundByIndex(SoundStruct.YouWinVoice, Vector3.zero);
 
-            yield return new WaitForSeconds(2f);
+            //yield return new WaitForSeconds(2f);
 
-            GameController.Instance.PlayAd("defaultZone");
+            //GameController.Instance.PlayAd("defaultZone");
 
             yield return new WaitForSeconds(2f);
 
