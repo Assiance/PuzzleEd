@@ -282,9 +282,9 @@ namespace Assets.PuzzleEd.Scripts.Regular.Managers
 
             PuzzleSoundController.Instance.PlaySoundByIndex(SoundStruct.YouWinVoice, Vector3.zero);
 
-            yield return new WaitForSeconds(2f);
+            //yield return new WaitForSeconds(2f);
 
-            GameController.Instance.PlayAd("defaultZone");
+            //GameController.Instance.PlayAd("defaultZone");
 
             yield return new WaitForSeconds(2f);
 
